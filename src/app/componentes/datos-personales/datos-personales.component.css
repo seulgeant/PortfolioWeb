@@ -1,0 +1,53 @@
+
+div{
+    font-size: 2.2vh;
+   }
+
+
+ h5{
+    font-size: 3vh;
+ }
+ section{
+  
+  padding-top: 8vw;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row-reverse;
+ }
+.img-fondo{
+ 
+  position: absolute;
+  width: 100vw;
+  height: 20vh;
+  
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.img-fondo h2{
+ 
+ padding-top: 2vw;
+ text-align: center;
+ font-size: 8vh;
+ text-transform: uppercase;
+ color:black;
+
+}
+ .datos-personales{
+   padding: 1vw 1vw 4vw 1vw;
+  
+ }
+
+ .contacto{
+   padding: 1vw 1vw 1vw 1vw;
+ }
+ @media all and (max-width:860px) {
+  div{
+    font-size: 3vh;
+    text-align: center;
+   }
+   h5{
+    font-size: 5vh;
+    text-align: center;
+ }
+ }
+ 
