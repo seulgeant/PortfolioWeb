@@ -14,6 +14,7 @@ import { ReferenciasComponent } from './componentes/referencias/referencias.comp
 import { ObjetivosComponent } from './componentes/objetivos/objetivos.component';
 import { SoftComponent } from './componentes/soft/soft.component';
 import { HardComponent } from './componentes/hard/hard.component';
+import { FondoComponent } from './componentes/fondo/fondo.component';
 
 
 
@@ -30,7 +31,8 @@ import { HardComponent } from './componentes/hard/hard.component';
     ReferenciasComponent,
     ObjetivosComponent,
     SoftComponent,
-    HardComponent
+    HardComponent,
+    FondoComponent
   ],
   imports: [
     BrowserModule,AppRoutingModule

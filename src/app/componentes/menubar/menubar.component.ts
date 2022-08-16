@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-menubar',
@@ -11,5 +12,9 @@ export class MenubarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+/*toDatosPersonales(){
+  document.getElementById("datos")?.scroll({behavior:"smooth"});
+}*/
 }
+
+
