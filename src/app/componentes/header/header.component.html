@@ -56,8 +56,35 @@
 
       <form class="d-flex" role="search">
         <button type="button" class="btn btn-outline-warning" style="border:0.5vw outset rgb(255, 217, 0);
-            border-radius: 1vw;min-height: 8vh ;min-width: 6.5vw;"><b>ENTRAR</b></button>
+            border-radius: 1vw;min-height: 8vh ;min-width: 6.5vw;"data-bs-toggle="modal" data-bs-target="#exampleModal"><b>ENTRAR</b></button>
       </form>
     </div>
   </div>
 </nav>
+<!-- aqui se construyo el modal-->
+
+<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered ">
+    <div class="modal-content bg-transparent text-warning border-light">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Acceder</h5>
+        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close" ></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Email</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Contraseña</label>
+          <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="contraseña">
+        </div>
+      </div>
+      <div class="modal-footer">
+       
+        <button type="button" class="btn btn-warning">Ingresar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
