@@ -1,0 +1,8 @@
+.imagen{
+    position:absolute;
+    max-width: 10vw;
+    max-height: 10vh;
+    top:7vh;
+    left:5vw;
+    color: orange;
+}
