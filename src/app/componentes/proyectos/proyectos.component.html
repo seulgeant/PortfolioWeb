@@ -5,8 +5,53 @@
       <h6 class="card-subtitle mb-2 ">Portfolio web Fecha:08/2022</h6>
       <h6 class="card-subtitle mb-2 ">URL:</h6>
       <p class="card-text ">se desarrollo un portfolio web como trabajo final para aplicar los conocimientos adquiridos tanto en Front End como Back End</p>
-      <div class="position-absolute bottom-0 end-0 "><i class="bi bi-pencil me-2 text-warning"></i><i class="bi bi-trash me-2 text-warning "></i></div>
+      <div class="position-absolute bottom-0 end-0 "><i class="bi bi-pencil me-2 text-warning" data-bs-toggle="modal" data-bs-target="#proyectos"></i><i class="bi bi-trash me-2 text-warning "></i></div>
     </div>
 </div>
 <div class="position-absolute top-0 end-0 bg-warning p-1  "><i class="bi bi-plus-lg"></i>
 </div>
+
+ <!-- aqui se construyo el modal-->
+
+ <div class="modal fade  " id="proyectos" tabindex="-1" aria-labelledby="proyectosModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered ">
+    <div class="modal-content bg-transparent  border-light ">
+      <div class="modal-header ">
+        <h5 class="modal-title text-warning" id="proyectosModalLabel">Proyectos</h5>
+        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close" ></button>
+      </div>
+      <div class="modal-body">
+          <form>
+            <div class="mb-3 input-group mb-3">
+              <label class="input-group-text" for="inputGroupSelect01">Empresa</label>
+              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Empresa a la que se dirige el proyecto">
+            </div>
+            <div class="mb-3 input-group mb-3">
+              <label class="input-group-text" for="inputGroupSelect01">Titulo</label>
+              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Titulo del trabajo">
+            </div>
+            <div class="input-group mb-3">
+              <label class="input-group-text" for="inputGroupSelect01">Fecha</label>
+              <input type="date" id="date">
+            </div>
+            <div class="mb-3 input-group mb-3">
+              <label class="input-group-text" for="inputGroupSelect01">URL</label>
+              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="URL del proyecto">
+            </div>
+
+            <div class="mb-3 text-warning">
+              <label for="exampleFormControlTextarea1 " class="form-label">Descripcion</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            </form>
+      </div>
+      <div class="modal-footer ">
+          <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-warning text-dark">Save changes</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+</div>
+<!-- aqui cierra el ciclo antes del boton guardar-->
