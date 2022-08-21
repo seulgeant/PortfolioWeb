@@ -5,22 +5,22 @@
       
       <div class="barra-lateral col-lg-2 " style="z-index: 1;">
       
-        <img src="../../assets/logo.png" class="img-fluid rounded-start p-3" alt="foto"  >
+        <img src={{persona.img}} class="img-fluid rounded-start p-3" alt="foto"  >
         <div class="datos-personales position-relative">
             <div><h5>Datos Personales:</h5></div>
-            <div><b>Nombre y Apellido:</b> Leonardo Esteban Gerez </div>
-            <div><b>Fecha de nacimiento:</b> 06/09/1986</div>
-            <div><b>Dni:</b> 32413341</div>
-            <div><b>Cuil:</b> 20-32413341-1</div>
-            <div><b>Estado Civil:</b> casado</div>
-            <div><b>Cantidad de Hijos:</b> 4</div>
+            <div><b>Nombre y Apellido:</b> {{persona.apellido}}, {{persona.nombre}} </div>
+            <div><b>Fecha de nacimiento:</b> {{persona.nacimiento}}</div>
+            <div><b>Dni:</b> {{persona.dni}}</div>
+            <div><b>Cuil:</b> {{persona.cuil}}</div>
+            <div><b>Estado Civil:</b> {{persona.civil}}</div>
+            <div><b>Cantidad de Hijos:</b> {{persona.hijos}}</div>
             <div class="position-absolute  end-0"><i class="bi bi-pencil me-2 " data-bs-toggle="modal" data-bs-target="#personales"></i><i class="bi bi-trash me-1"></i></div>
             </div>
             <div class="contacto position-relative">
                 <div><h5>Datos de contacto:</h5></div>
-            <div><img src="../../assets/maps.png" alt="email" width="15" height="20"> Exequiel Bravo 749 </div>
-            <div><img src="../../assets/telefono.png" alt="Telefono" width="18" height="20"> 03816370027</div>
-            <div><img src="../../assets/mail.png" alt="email" width="18" height="15"> leo0410@gmail.com</div>
+            <div><img src="../../assets/maps.png" alt="email" width="15" height="20"> {{persona.domicilio}}</div>
+            <div><img src="../../assets/telefono.png" alt="Telefono" width="18" height="20"> {{persona.telefono}}</div>
+            <div><img src="../../assets/mail.png" alt="email" width="18" height="15"> {{persona.correo}}</div>
             <div class="position-absolute  end-0"><i class="bi bi-pencil me-2" data-bs-toggle="modal" data-bs-target="#contacto"></i><i class="bi bi-trash me-1"></i></div>
             </div>
         
@@ -28,12 +28,12 @@
       <div class="col-md-8">
         <section  >
           <div class="img-fondo d-none d-xxl-block d-xl-block d-lg-block" >
-            <h2>Gerez, Leonardo Esteban</h2>
+            <h2 >{{persona.apellido}}, {{persona.nombre}}</h2>
           </div>
         </section>
         <div class="card-body position-relative" style="padding-top:20vh;">
-          <h5 class="card-title"><i class="bi bi-chevron-double-right" ></i> Sobre mi: Full Stack Developer Jr</h5>
-          <p class="card-text" style="font-size:2.8vh">Desde temprana edad he seguido con mucho interés el desarrollo de la programación. Me he preparado con el objetivo de poder cumplir con el perfil necesario para desarrollarme como programador. Actualmente me desempeño como administrativo, pero anteriormente tuve experiencias en trabajos relacionados con redes, espero con ansias poder aplicar para desarrollar en profundidad los conocimientos adquiridos y desarrollar mi carrera en el ambito de la programación.</p>
+          <h5 class="card-title"><i class="bi bi-chevron-double-right" ></i> Sobre mi: {{persona.titulo}}</h5>
+          <p class="card-text" style="font-size:2.8vh">{{persona.acercade}}</p>
           <div class="position-absolute  end-0"><i class="bi bi-pencil me-2" data-bs-toggle="modal" data-bs-target="#acercade"></i><i class="bi bi-trash me-1"></i></div> 
           
         </div>
@@ -118,7 +118,7 @@
               
               <div class="mb-3 input-group mb-3">
                 <label class="input-group-text" for="inputGroupSelect01">Direccion:</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Direccion">
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="calle nº-provincia">
               </div>
               <div class="mb-3 input-group mb-3">
                 <label class="input-group-text" for="inputGroupSelect01">Telefono</label>

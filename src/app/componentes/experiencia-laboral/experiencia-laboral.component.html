@@ -1,64 +1,113 @@
-<div class="position-relative">
-<div class="card col-12 bg-transparent text-center border-0 border-bottom border-warning" >
-  <img class="imagen"src="../../../assets/logo.png" alt="Sin Logo">
+<div class="position-relative" >
+<div class="card col-12 bg-transparent text-center border-0 border-bottom border-warning"*ngFor="let Experiencia of experiencia" >
+  <img class="imagen"src="{{Experiencia.imgE}}" alt="Sin Logo">
     <div class="card-body text-info">
-      <h5 class="card-title">Administrativo </h5>
-      <h6 class="card-subtitle mb-2 ">Registro del automotor Tucuman "b" desde:05/01/2018 hasta:actual</h6>
-      <h6 class="card-subtitle mb-2 "> AV. Mate de Luna 2159 - San Miguel de Tucuman - Tucuman</h6>
-      <p class="card-text "> -Descripcion:atención, control y administracion de los elementos registrales del registro del automotor</p>
-      <div class="position-absolute bottom-0 end-0 "><i class="bi bi-pencil me-2 text-warning" data-bs-toggle="modal" data-bs-target="#experiencia"></i><i class="bi bi-trash me-2 text-warning "></i></div>
+      <h5 class="card-title">{{Experiencia.cargoE}}</h5>
+      <h6 class="card-subtitle mb-2 ">{{Experiencia.empresaE}} Desde: {{Experiencia.desdeE}} Hasta: {{Experiencia.hastaE}}</h6>
+      <h6 class="card-subtitle mb-2 ">{{Experiencia.domicilioE}} </h6>
+      <p class="card-text ">Descripcion: {{Experiencia.descripcionE}}</p>
+      <div class="position-absolute bottom-0 end-0 ">
+        <i class="bi bi-pencil me-2 text-warning" data-bs-toggle="modal"  data-bs-target="#experiencia" (click)="onDetail(Experiencia.id)"></i>
+        <i class="bi bi-trash me-2 text-warning" (click)="delete(Experiencia.id)"></i>
+        
+      </div>
     </div>
 </div>
-<div class="position-absolute top-0 end-0 bg-warning p-1  "><i class="bi bi-plus-lg" ></i>
+<div class="position-absolute top-0 end-0 bg-warning p-1  "><i class="bi bi-plus-lg"data-bs-toggle="modal" data-bs-target="#nexperiencia" ></i>
+</div>
 </div>
 
- <!-- aqui se construyo el modal-->
-
- <div class="modal fade  " id="experiencia" tabindex="-1" aria-labelledby="experienciaModalLabel" aria-hidden="true">
+ <!-- aqui se construyo el modal agregar experiencia-->
+ <div class="modal fade  " id="nexperiencia" tabindex="-1" aria-labelledby="nexperienciaModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered ">
     <div class="modal-content bg-transparent  border-light ">
       <div class="modal-header ">
-        <h5 class="modal-title text-warning" id="experienciaModalLabel">Experiencia</h5>
-        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close" ></button>
+        <h5 class="modal-title text-warning" id="nexperienciaModalLabel">Nueva Experiencia</h5>
+        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" data- aria-label="Close" ></button>
       </div>
       <div class="modal-body">
-          <form>
+          <form (ngSubmit)="onCreate()">
             <div class="mb-3 input-group mb-3">
               <label class="input-group-text" for="inputGroupSelect01">Cargo</label>
-              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Cargo o posición en el trabajo">
+              <input type="text" class="form-control" id="cargoE" name="cargoE" [(ngModel)]="cargoE" placeholder="Cargo o posición en el trabajo">
             </div>
             <div class="mb-3 input-group mb-3">
               <label class="input-group-text" for="inputGroupSelect01">Empresa</label>
-              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nombre de la empresa">
+              <input type="text" class="form-control" id="empresaE" name="empresaE" [(ngModel)]="empresaE" placeholder="Nombre de la empresa">
             </div>
             <div class="input-group mb-3">
               <label class="input-group-text" for="inputGroupSelect01">desde/hasta</label>
-              <input type="date" id="date">
-              <input type="date" id="date">
+              <input type="date" id="desdeE" name="desdeE" [(ngModel)]="desdeE">
+              <input type="text" id="hastaE" name="hastaE" [(ngModel)]="hastaE">
             </div>
             <div class="mb-3 input-group mb-3">
               <label class="input-group-text" for="inputGroupSelect01">Direccion</label>
-              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Direccion de la empresa">
+              <input type="text" class="form-control" id="domicilioE" name="domicilioE" [(ngModel)]="domicilioE" placeholder="Direccion de la empresa">
             </div>
 
             <div class="mb-3 text-warning">
               <label for="exampleFormControlTextarea1 " class="form-label">Descripcion de Tareas</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <textarea class="form-control"  id="descripcionE" name="descripcionE" [(ngModel)]="descripcionE" rows="3"></textarea>
             </div>
-
-           
-            <div class="input-group mb-3">
-              <input type="file" class="form-control" id="inputGroupFile02">
-              <label class="input-group-text" for="inputGroupFile02">Subir logo</label>
+            <div class="mb-3">
+              <label for="formFile" class="form-label text-warning">Subir logo</label>
+              <input  type="file" class="form-control" id="imgE" name="imgE" [(ngModel)]="imgE">
+            </div>
+            <div class="modal-footer ">
+              <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-warning text-dark" data-bs-dismiss="modal">Save changes</button>
             </div>
             </form>
       </div>
-      <div class="modal-footer ">
-          <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-warning text-dark">Save changes</button>
-        </div>
+
     </div>
   </div>
 </div>
 
+
+
+<!-- aqui se construyo el modal editar experiencia-->
+<div class="modal fade  " id="experiencia" tabindex="-1" aria-labelledby="experienciaModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered ">
+    <div class="modal-content bg-transparent  border-light ">
+      <div class="modal-header ">
+        <h5 class="modal-title text-warning" id="experienciaModalLabel">Editar Experiencia</h5>
+        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" data- aria-label="Close" ></button>
+      </div>
+      <div class="modal-body">
+          <form (ngSubmit)="onUpdate(expedit.id)">
+            <div class="mb-3 input-group mb-3">
+              <label class="input-group-text" for="inputGroupSelect01">Cargo</label>
+              <input type="text" class="form-control" id="cargoE" name="cargoE" [(ngModel)]="expedit.cargoE" placeholder="Cargo o posición en el trabajo">
+            </div>
+            <div class="mb-3 input-group mb-3">
+              <label class="input-group-text" for="inputGroupSelect01">Empresa</label>
+              <input type="text" class="form-control" id="empresaE" name="empresaE" [(ngModel)]="expedit.empresaE" placeholder="Nombre de la empresa">
+            </div>
+            <div class="input-group mb-3">
+              <label class="input-group-text" for="inputGroupSelect01">desde/hasta</label>
+              <input type="date" id="desdeE" name="desdeE" [(ngModel)]="expedit.desdeE">
+              <input type="text" id="hastaE" name="hastaE" [(ngModel)]="expedit.hastaE">
+            </div>
+            <div class="mb-3 input-group mb-3">
+              <label class="input-group-text" for="inputGroupSelect01">Direccion</label>
+              <input type="text" class="form-control" id="domicilioE" name="domicilioE" [(ngModel)]="expedit.domicilioE" placeholder="Direccion de la empresa">
+            </div>
+            <div class="mb-3 text-warning">
+              <label for="exampleFormControlTextarea1 " class="form-label">Descripcion de Tareas</label>
+              <textarea class="form-control"  id="descripcionE" name="descripcionE" [(ngModel)]="expedit.descripcionE" rows="3"></textarea>
+            </div>
+
+            <div class="mb-3">
+              <label for="formFile" class="form-label text-warning">Subir logo</label>
+              <input  type="file" class="form-control" id="imgE" name="imgE" [(ngModel)]="expedit.imgE">
+            </div>
+            <div class="modal-footer ">
+              <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-warning text-dark" data-bs-dismiss="modal">Save changes</button>
+            </div>
+            </form>
+      </div>
+    </div>
+  </div>
 </div>
