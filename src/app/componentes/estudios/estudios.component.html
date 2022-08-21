@@ -1,73 +1,118 @@
 <div class="position-relative">
-<div class="card col-12 bg-transparent text-center border-0 border-bottom border-warning">
-  <img class="imagen" src="../../../assets/logo.png" alt="Sin Logo">
-  <div class="card-body text-info">
-    <h5 class="card-title">Secundario</h5>
-    <h6 class="card-subtitle mb-2 ">Institucion: Gral. don Jose de San Martin</h6>
-    <h6 class="card-subtitle mb-2 ">Titulo: Economia y Gestion de las organizaciones</h6>
-    <p class="card-text ">01/03/2000 - 01/12/2004 Estado: Finalizado</p>
-    <div class="position-absolute bottom-0 end-0 "><i class="bi bi-pencil me-2 text-warning" data-bs-toggle="modal" data-bs-target="#estudios"></i><i class="bi bi-trash me-2 text-warning "></i></div>
-    
+  <div class="card col-12 bg-transparent text-center border-0 border-bottom border-warning"
+    *ngFor="let estudio of estudio">
+    <img class="imagen" src="{{estudio.imgest}}" alt="Sin Logo">
+    <div class="card-body text-info">
+      <h5 class="card-title">{{estudio.nivel}}</h5>
+      <h6 class="card-subtitle mb-2 ">Institucion: {{estudio.institucion}}</h6>
+      <h6 class="card-subtitle mb-2 ">Titulo: {{estudio.titulo}}</h6>
+      <p class="card-text ">{{estudio.desde}} - {{estudio.hasta}} Estado:{{estudio.estado}}</p>
+      <div class="position-absolute bottom-0 end-0 ">
+        <i class="bi bi-pencil me-2 text-warning" data-bs-toggle="modal" data-bs-target="#estudios"
+          (click)="onDetail(estudio.id)"></i>
+        <i class="bi bi-trash me-2 text-warning " (click)="delete(estudio.id)"></i>
+      </div>
+    </div>
   </div>
-  <!-- aqui se construyo el modal-->
+  <div class="position-absolute top-0 end-0 bg-warning p-1  "><i class="bi bi-plus-lg" data-bs-toggle="modal" data-bs-target="#nestudios"></i></div>
+</div>
+
+<!-- aqui se construyo el modal edit-->
 
 <div class="modal fade  " id="estudios" tabindex="-1" aria-labelledby="estudiosModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered ">
     <div class="modal-content bg-transparent  border-light ">
       <div class="modal-header ">
         <h5 class="modal-title text-warning" id="estudiosModalLabel">Estudios</h5>
-        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close" ></button>
+        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-          <form>
-            <div class="input-group mb-3">
+        <form (ngSubmit)="onUpdate(estupd.id)">
+          <div class="input-group mb-3">
+            <div class="mb-3 input-group mb-3">
               <label class="input-group-text" for="inputGroupSelect01">Nivel</label>
-              <select class="form-select" id="inputGroupSelect01">
-                <option selected value="1">Primario</option>
-                <option value="2">Secundario</option>
-                <option value="3">Terciario</option>
-                <option value="3">Universitario</option>
-                <option value="4">Otros Cursos</option>
-              </select>             
+              <input type="text" class="form-control" id="nivel" name="nivel" [(ngModel)]="estupd.nivel">
             </div>
-            <div class="mb-3 input-group mb-3">
-              <label class="input-group-text" for="inputGroupSelect01">Institucion</label>
-              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nombre de la institucion">
-            </div>
-            <div class="mb-3 input-group mb-3">
-              <label class="input-group-text" for="inputGroupSelect01">Titulo</label>
-              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nombre del Titulo">
-            </div>
+          </div>
+          <div class="mb-3 input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Institucion</label>
+            <input type="text" class="form-control" id="institucion" name="institucion"
+              [(ngModel)]="estupd.institucion">
+          </div>
+          <div class="mb-3 input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Titulo</label>
+            <input type="text" class="form-control" id="titulo" name="titulo" [(ngModel)]="estupd.titulo">
+          </div>
+          <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">desde/hasta</label>
+            <input type="date" id="desde" name="desde" [(ngModel)]="estupd.desde">
+            <input type="text" id="hasta" name="hasta" [(ngModel)]="estupd.hasta">
+          </div>
+          <div class="mb-3 input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Estado</label>
+            <input type="text" class="form-control" id="estado" name="estado" [(ngModel)]="estupd.estado">
+          </div>
 
-            <div class="input-group mb-3">
-              <label class="input-group-text" for="inputGroupSelect01">desde</label>
-              <input type="date" id="date">
-            </div>
-
-            <div class="input-group mb-3">
-              <label class="input-group-text" for="inputGroupSelect01">Hasta</label>
-              <input type="date" id="date">
-              <select class="form-select" id="inputGroupSelect01">
-                <option selected value="1">Finalizado</option>
-                <option value="2">En curso</option>
-                <option value="3">Abandonado</option>
-              </select>   
-            </div>
-            <div class="input-group mb-3">
-              <input type="file" class="form-control" id="inputGroupFile02">
-              <label class="input-group-text" for="inputGroupFile02">Subir logo</label>
-            </div>
-            </form>
+          <div class="mb-3">
+            <label for="formFile" class="form-label text-warning">Subir logo</label>
+            <input type="file" class="form-control" id="imgest" name="imgest" [(ngModel)]="estupd.imgest">
+          </div>
+          <div class="modal-footer ">
+            <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-warning text-dark" data-bs-dismiss="modal">Save changes</button>
+          </div>
+        </form>
       </div>
-      <div class="modal-footer ">
-          <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-warning text-dark">Save changes</button>
-        </div>
     </div>
   </div>
 </div>
 
-</div>
-<!-- aqui cierra el ciclo antes del boton guardar-->
-<div class="position-absolute top-0 end-0 bg-warning p-1  "><i class="bi bi-plus-lg"></i>
+<!-- aqui se construyo el modal create-->
+
+<div class="modal fade  " id="nestudios" tabindex="-1" aria-labelledby="nestudiosModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered ">
+    <div class="modal-content bg-transparent  border-light ">
+      <div class="modal-header ">
+        <h5 class="modal-title text-warning" id="nestudiosModalLabel">Nuevo Estudios</h5>
+        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="onCreate()">
+          <div class="input-group mb-3">
+            <div class="mb-3 input-group mb-3">
+              <label class="input-group-text" for="inputGroupSelect01">Nivel</label>
+              <input type="text" class="form-control" id="nivel" name="nivel" [(ngModel)]="nivel">
+            </div>
+          </div>
+          <div class="mb-3 input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Institucion</label>
+            <input type="text" class="form-control" id="institucion" name="institucion"
+              [(ngModel)]="institucion">
+          </div>
+          <div class="mb-3 input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Titulo</label>
+            <input type="text" class="form-control" id="titulo" name="titulo" [(ngModel)]="titulo">
+          </div>
+          <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">desde/hasta</label>
+            <input type="date" id="desde" name="desde" [(ngModel)]="desde">
+            <input type="text" id="hasta" name="hasta" [(ngModel)]="hasta">
+          </div>
+          <div class="mb-3 input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Estado</label>
+            <input type="text" class="form-control" id="estado" name="estado" [(ngModel)]="estado">
+          </div>
+
+          <div class="mb-3">
+            <label for="formFile" class="form-label text-warning">Subir logo</label>
+            <input type="file" class="form-control" id="imgest" name="imgest" [(ngModel)]="imgest">
+          </div>
+          <div class="modal-footer ">
+            <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-warning text-dark" data-bs-dismiss="modal">Save changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>

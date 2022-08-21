@@ -13,7 +13,8 @@ import { ObjetivosComponent } from './componentes/objetivos/objetivos.component'
 import { SoftComponent } from './componentes/soft/soft.component';
 import { HardComponent } from './componentes/hard/hard.component';
 import { FondoComponent } from './componentes/fondo/fondo.component';
-
+import {HttpClientModule} from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -32,7 +33,11 @@ import { FondoComponent } from './componentes/fondo/fondo.component';
     FondoComponent
   ],
   imports: [
-    BrowserModule,AppRoutingModule
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

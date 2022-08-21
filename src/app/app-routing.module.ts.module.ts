@@ -1,4 +1,3 @@
-
 import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
 import { SoftComponent } from './componentes/soft/soft.component';
 import { HardComponent } from './componentes/hard/hard.component';
@@ -19,7 +18,7 @@ const routes:Routes=[
 {path:'experiencia', component:ExperienciaLaboralComponent},
 {path:'hard', component:HardComponent},
 {path:'soft', component:SoftComponent},
-{path:'proyectos', component:ProyectosComponent}
+{path:'proyectos', component:ProyectosComponent},
 ]
 
 
