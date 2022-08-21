@@ -78,11 +78,11 @@
           <form (ngSubmit)="onUpdate(expedit.id)">
             <div class="mb-3 input-group mb-3">
               <label class="input-group-text" for="inputGroupSelect01">Cargo</label>
-              <input type="text" class="form-control" id="cargoE" name="cargoE" [(ngModel)]="expedit.cargoE" placeholder="Cargo o posición en el trabajo">
+              <input type="text" class="form-control" id="cargoE" name="cargoE" [(ngModel)]="expedit.cargoE">
             </div>
             <div class="mb-3 input-group mb-3">
               <label class="input-group-text" for="inputGroupSelect01">Empresa</label>
-              <input type="text" class="form-control" id="empresaE" name="empresaE" [(ngModel)]="expedit.empresaE" placeholder="Nombre de la empresa">
+              <input type="text" class="form-control" id="empresaE" name="empresaE" [(ngModel)]="expedit.empresaE" >
             </div>
             <div class="input-group mb-3">
               <label class="input-group-text" for="inputGroupSelect01">desde/hasta</label>
@@ -91,7 +91,7 @@
             </div>
             <div class="mb-3 input-group mb-3">
               <label class="input-group-text" for="inputGroupSelect01">Direccion</label>
-              <input type="text" class="form-control" id="domicilioE" name="domicilioE" [(ngModel)]="expedit.domicilioE" placeholder="Direccion de la empresa">
+              <input type="text" class="form-control" id="domicilioE" name="domicilioE" [(ngModel)]="expedit.domicilioE">
             </div>
             <div class="mb-3 text-warning">
               <label for="exampleFormControlTextarea1 " class="form-label">Descripcion de Tareas</label>
