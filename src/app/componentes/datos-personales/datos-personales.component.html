@@ -1,101 +1,106 @@
-
 <div class="card mb-2 ps-4" style="background-color: rgba(0, 0, 0, 0.1);">
 
-    <div class="row g-0 text-light" >
-      
-      <div class="barra-lateral col-lg-2 " style="z-index: 1;">
-      
-        <img src={{persona.img}} class="img-fluid rounded-start p-3" alt="foto"  >
-        <div class="datos-personales position-relative">
-            <div><h5>Datos Personales:</h5></div>
-            <div><b>Nombre y Apellido:</b> {{persona.apellido}}, {{persona.nombre}} </div>
-            <div><b>Fecha de nacimiento:</b> {{persona.nacimiento}}</div>
-            <div><b>Dni:</b> {{persona.dni}}</div>
-            <div><b>Cuil:</b> {{persona.cuil}}</div>
-            <div><b>Estado Civil:</b> {{persona.civil}}</div>
-            <div><b>Cantidad de Hijos:</b> {{persona.hijos}}</div>
-            <div class="position-absolute  end-0"><i class="bi bi-pencil me-2 " data-bs-toggle="modal" data-bs-target="#personales"></i><i class="bi bi-trash me-1"></i></div>
-            </div>
-            <div class="contacto position-relative">
-                <div><h5>Datos de contacto:</h5></div>
-            <div><img src="../../assets/maps.png" alt="email" width="15" height="20"> {{persona.domicilio}}</div>
-            <div><img src="../../assets/telefono.png" alt="Telefono" width="18" height="20"> {{persona.telefono}}</div>
-            <div><img src="../../assets/mail.png" alt="email" width="18" height="15"> {{persona.correo}}</div>
-            <div class="position-absolute  end-0"><i class="bi bi-pencil me-2" data-bs-toggle="modal" data-bs-target="#contacto"></i><i class="bi bi-trash me-1"></i></div>
-            </div>
-        
-      </div>
-      <div class="col-md-8">
-        <section  >
-          <div class="img-fondo d-none d-xxl-block d-xl-block d-lg-block" >
-            <h2 >{{persona.apellido}}, {{persona.nombre}}</h2>
-          </div>
-        </section>
-        <div class="card-body position-relative" style="padding-top:20vh;">
-          <h5 class="card-title"><i class="bi bi-chevron-double-right" ></i> Sobre mi: {{persona.titulo}}</h5>
-          <p class="card-text" style="font-size:2.8vh">{{persona.acercade}}</p>
-          <div class="position-absolute  end-0"><i class="bi bi-pencil me-2" data-bs-toggle="modal" data-bs-target="#acercade"></i><i class="bi bi-trash me-1"></i></div> 
-          
+  <div class="row g-0 text-light">
+
+    <div class="barra-lateral col-lg-2 " style="z-index: 1;">
+
+      <img src={{persona.img}} class="img-fluid rounded-start p-3" alt="foto">
+      <div class="datos-personales position-relative">
+        <div>
+          <h5>Datos Personales:</h5>
         </div>
+        <div><b>Nombre y Apellido:</b> {{persona.apellido}}, {{persona.nombre}} </div>
+        <div><b>Fecha de nacimiento:</b> {{persona.nacimiento}}</div>
+        <div><b>Dni:</b> {{persona.dni}}</div>
+        <div><b>Cuil:</b> {{persona.cuil}}</div>
+        <div><b>Estado Civil:</b> {{persona.civil}}</div>
+        <div><b>Cantidad de Hijos:</b> {{persona.hijos}}</div>
+        <div class="position-absolute  end-0"><i class="bi bi-pencil me-2 " data-bs-toggle="modal"
+            data-bs-target="#personales"></i></div>
+      </div>
+      <div class="contacto position-relative">
+        <div>
+          <h5>Datos de contacto:</h5>
+        </div>
+        <div><img src="../../assets/maps.png" alt="email" width="15" height="20"> {{persona.domicilio}}</div>
+        <div><img src="../../assets/telefono.png" alt="Telefono" width="18" height="20"> {{persona.telefono}}</div>
+        <div><img src="../../assets/mail.png" alt="email" width="18" height="15"> {{persona.correo}}</div>
+        <div class="position-absolute  end-0"><i class="bi bi-pencil me-2" data-bs-toggle="modal"
+            data-bs-target="#contacto"></i></div>
+      </div>
+
+    </div>
+    <div class="col-md-8">
+      <section>
+        <div class="img-fondo d-none d-xxl-block d-xl-block d-lg-block">
+          <h2>{{persona.apellido}}, {{persona.nombre}}</h2>
+        </div>
+      </section>
+      <div class="card-body position-relative" style="padding-top:20vh;">
+        <h5 class="card-title"><i class="bi bi-chevron-double-right"></i> Sobre mi: {{persona.titulo}}</h5>
+        <p class="card-text" style="font-size:2.8vh">{{persona.acercade}}</p>
+        <div class="position-absolute  end-0"><i class="bi bi-pencil me-2" data-bs-toggle="modal"
+            data-bs-target="#acercade"></i></div>
 
       </div>
-   
+
     </div>
 
   </div>
 
-   <!-- aqui se construyo el modal de datos personales-->
+</div>
 
- <div class="modal fade  " id="personales" tabindex="-1" aria-labelledby="personalesModalLabel" aria-hidden="true">
+<!-- aqui se construyo el modal de datos personales-->
+
+<div class="modal fade  " id="personales" tabindex="-1" aria-labelledby="personalesModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered ">
     <div class="modal-content bg-transparent  border-light ">
       <div class="modal-header ">
         <h5 class="modal-title text-warning" id="personalesModalLabel">Personales</h5>
-        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close" ></button>
+        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-          <form>
-            <div class="input-group mb-3">
-              <span class="input-group-text">Apellido y nombre</span>
-              <input type="text" aria-label="Apellido" class="form-control">
-              <input type="text" aria-label="Nombre" class="form-control">
-            </div>
-            <div class="input-group mb-3">
-              <label class="input-group-text" for="inputGroupSelect01">Fecha de nacimiento</label>
-              <input type="date" id="date">
-            </div>
-            <div class="mb-3 input-group mb-3">
-              <label class="input-group-text" for="inputGroupSelect01">DNI:</label>
-              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="DNI sin puntos">
-            </div>
-            <div class="mb-3 input-group mb-3">
-              <label class="input-group-text" for="inputGroupSelect01">Cuil</label>
-              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="cuil sin guiones">
-            </div>
+        <form (ngSubmit)="onUpdate()">
+          <div class="input-group mb-3">
+            <span class="input-group-text">Apellido y nombre</span>
+            <input type="text" aria-label="Apellido" class="form-control" id="apellido" name="apellido"
+              [(ngModel)]="persona.apellido">
+            <input type="text" aria-label="Nombre" class="form-control" id="nombre" name="nombre"
+              [(ngModel)]="persona.nombre">
+          </div>
+          <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Fecha de nacimiento</label>
+            <input type="date" id="nacimiento" name="nacimiento" [(ngModel)]="persona.nacimiento">
+          </div>
+          <div class="mb-3 input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">DNI:</label>
+            <input type="text" class="form-control" id="dni" name="dni" [(ngModel)]="persona.dni">
+          </div>
+          <div class="mb-3 input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Cuil</label>
+            <input type="text" class="form-control" id="cuil" name="cuil" [(ngModel)]="persona.cuil">
+          </div>
 
-            <div class="input-group mb-3">
-              <label class="input-group-text" for="inputGroupSelect01">Estado civil</label>
-              <select class="form-select" id="inputGroupSelect01">
-                <option selected value="1">Soltero</option>
-                <option value="2">Casado</option>
-                <option value="3">Viudo</option>
-              </select>   
-            </div>
-            <div class="mb-3 input-group mb-3">
-              <label class="input-group-text" for="inputGroupSelect01">Hijos</label>
-              <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Cantidad de hijos">
-            </div>
-           
-            <div class="input-group mb-3">
-              <input type="file" class="form-control" id="inputGroupFile02">
-              <label class="input-group-text" for="inputGroupFile02">Subir logo</label>
-            </div>
-            </form>
+          <div class="mb-3 input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Estado Civil</label>
+            <input type="text" class="form-control" id="civil" name="civil" [(ngModel)]="persona.civil">
+          </div>
+          <div class="mb-3 input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Hijos</label>
+            <input type="number" class="form-control" id="hijos" name="hijos" [(ngModel)]="persona.hijos">
+          </div>
+
+          <div class="mb-3">
+            <label for="formFile" class="form-label text-warning">Subir Foto</label>
+            <input type="file" class="form-control" id="imgE" name="imgE" [(ngModel)]="persona.img">
+          </div>
+          <div class="modal-footer ">
+            <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-warning text-dark">Save changes</button>
+          </div>
+        </form>
       </div>
-      <div class="modal-footer ">
-          <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-warning text-dark">Save changes</button>
-        </div>
+
     </div>
   </div>
 </div>
@@ -103,69 +108,71 @@
 
 
 
-   <!-- aqui se construyo el modal de contacto-->
+<!-- aqui se construyo el modal de contacto-->
 
-   <div class="modal fade  " id="contacto" tabindex="-1" aria-labelledby="contactoModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered ">
-      <div class="modal-content bg-transparent  border-light ">
-        <div class="modal-header ">
-          <h5 class="modal-title text-warning" id="contactoModalLabel">Contacto</h5>
-          <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close" ></button>
-        </div>
-        <div class="modal-body">
-            <form>
-
-              
-              <div class="mb-3 input-group mb-3">
-                <label class="input-group-text" for="inputGroupSelect01">Direccion:</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="calle nº-provincia">
-              </div>
-              <div class="mb-3 input-group mb-3">
-                <label class="input-group-text" for="inputGroupSelect01">Telefono</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Telefono">
-              </div>
-              <div class="mb-3 input-group mb-3">
-                <label class="input-group-text" for="inputGroupSelect01">Correo</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Correo@servidor.com">
-              </div>
-              </form>
-        </div>
-        <div class="modal-footer ">
-            <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-warning text-dark">Save changes</button>
-          </div>
+<div class="modal fade  " id="contacto" tabindex="-1" aria-labelledby="contactoModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered ">
+    <div class="modal-content bg-transparent  border-light ">
+      <div class="modal-header ">
+        <h5 class="modal-title text-warning" id="contactoModalLabel">Contacto</h5>
+        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <div class="modal-body">
+        <form (ngSubmit)="onUpdate()">
+
+
+          <div class="mb-3 input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Direccion:</label>
+            <input type="text" class="form-control" id="domicilio" name="domicilio" [(ngModel)]="persona.domicilio">
+          </div>
+          <div class="mb-3 input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Telefono</label>
+            <input type="text" class="form-control" id="telefono" name="telefono" [(ngModel)]="persona.telefono">
+          </div>
+          <div class="mb-3 input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Correo</label>
+            <input type="email" class="form-control" id="correo" name="correo" [(ngModel)]="persona.correo">
+          </div>
+          <div class="modal-footer ">
+            <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-warning text-dark">Save changes</button>
+          </div>
+        </form>
+      </div>
+
     </div>
   </div>
-  
- 
+</div>
 
 
-    <!-- aqui inicia el modal de Sobre mi-->
+
+
+<!-- aqui inicia el modal de Sobre mi-->
 
 <div class="modal fade  " id="acercade" tabindex="-1" aria-labelledby="acercadeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered ">
     <div class="modal-content bg-transparent  border-light">
       <div class="modal-header ">
         <h5 class="modal-title text-warning" id="acercadeModalLabel">Acerca de:</h5>
-        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close" ></button>
+        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form (ngSubmit)="onUpdate()">
           <div class="mb-3 input-group mb-3">
             <label class="input-group-text" for="inputGroupSelect01">Titulo:</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Titulo">
+            <input type="text" class="form-control" id="titulo" name="titulo" [(ngModel)]="persona.titulo">
           </div>
           <div class="mb-3 ">
             <label for="exampleFormControlTextarea1" class="form-label text-warning">Sobre mi:</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea class="form-control" id="acercade" name="acercade" [(ngModel)]="persona.acercade" rows="3"></textarea>
           </div>
-          </form>
+          <div class="modal-footer ">
+            <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-warning text-dark">Save changes</button>
+          </div>
+        </form>
       </div>
-      <div class="modal-footer ">
-          <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-warning text-dark">Save changes</button>
-        </div>
+
     </div>
   </div>
 </div>

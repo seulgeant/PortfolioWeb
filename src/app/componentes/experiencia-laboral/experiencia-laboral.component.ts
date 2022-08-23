@@ -1,5 +1,5 @@
 import { SExperienciaService } from './../../service/s-experiencia.service';
-import { Experiencia } from './../../model/experiencia';
+import { Experiencia } from '../../model/experiencia.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
