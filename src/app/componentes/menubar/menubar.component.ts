@@ -12,9 +12,7 @@ export class MenubarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-/*toDatosPersonales(){
-  document.getElementById("datos")?.scroll({behavior:"smooth"});
-}*/
+
 }
 
 

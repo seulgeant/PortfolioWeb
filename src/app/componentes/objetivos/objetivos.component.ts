@@ -9,36 +9,35 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./objetivos.component.css']
 })
 export class ObjetivosComponent implements OnInit {
-  objetivo: objetivo =null;
+  objetivo: objetivo = null;
 
-  constructor(private sObjetivo:ObjetivoService, private route:ActivatedRoute, private router: Router) { }
+  constructor(private sObjetivo: ObjetivoService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.onDetail();
   }
 
   //para traer datos
-  onDetail(){
+  onDetail() {
     this.sObjetivo.detail().subscribe(
-      data =>{
+      data => {
         this.objetivo = data;
-      }, err =>{
-        alert("Eno se pudo cargar la experiencia");
+      }, err => {
+        alert("no se pudo cargar la experiencia");
       }
     )
   }
-//para update
-onUpdate(): void{
-  this.sObjetivo.update(this.objetivo).subscribe(
-    data => {
-      alert("Los datos han sido modificados");
-      location.href=location.href;
-    }, err =>{
-       alert("Error al modificar experiencia");
-       location.href=location.href;
-    }
-  )
-}
+  //para update
+  onUpdate(): void {
+    this.sObjetivo.update(this.objetivo).subscribe(
+      data => {
+        alert("Los datos han sido modificados");
+        location.href = location.href;
+      }, err => {
+        alert("Los campos no pueden estar vacios");
+      }
+    )
+  }
 
 
 }

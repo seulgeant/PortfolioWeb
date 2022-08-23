@@ -4,9 +4,6 @@ export class objetivo {
     descripcionM: String;
     descripcionF: String;
 
-
-
-
     constructor(descripcionE: String, descripcionM: String, descripcionF: String) {
         this.descripcionE = descripcionE;
         this.descripcionM = descripcionM;

@@ -1,9 +1,6 @@
 <div class="card mb-2 ps-4" style="background-color: rgba(0, 0, 0, 0.1);">
-
   <div class="row g-0 text-light">
-
     <div class="barra-lateral col-lg-2 " style="z-index: 1;">
-
       <img src={{persona.img}} class="img-fluid rounded-start p-3" alt="foto">
       <div class="datos-personales position-relative">
         <div>
@@ -28,7 +25,6 @@
         <div class="position-absolute  end-0"><i class="bi bi-pencil me-2" data-bs-toggle="modal"
             data-bs-target="#contacto"></i></div>
       </div>
-
     </div>
     <div class="col-md-8">
       <section>
@@ -41,13 +37,9 @@
         <p class="card-text" style="font-size:2.8vh">{{persona.acercade}}</p>
         <div class="position-absolute  end-0"><i class="bi bi-pencil me-2" data-bs-toggle="modal"
             data-bs-target="#acercade"></i></div>
-
       </div>
-
     </div>
-
   </div>
-
 </div>
 
 <!-- aqui se construyo el modal de datos personales-->
@@ -57,7 +49,8 @@
     <div class="modal-content bg-transparent  border-light ">
       <div class="modal-header ">
         <h5 class="modal-title text-warning" id="personalesModalLabel">Personales</h5>
-        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"
+          (click)="onDetail()"></button>
       </div>
       <div class="modal-body">
         <form (ngSubmit)="onUpdate()">
@@ -80,7 +73,6 @@
             <label class="input-group-text" for="inputGroupSelect01">Cuil</label>
             <input type="text" class="form-control" id="cuil" name="cuil" [(ngModel)]="persona.cuil">
           </div>
-
           <div class="mb-3 input-group mb-3">
             <label class="input-group-text" for="inputGroupSelect01">Estado Civil</label>
             <input type="text" class="form-control" id="civil" name="civil" [(ngModel)]="persona.civil">
@@ -89,18 +81,17 @@
             <label class="input-group-text" for="inputGroupSelect01">Hijos</label>
             <input type="number" class="form-control" id="hijos" name="hijos" [(ngModel)]="persona.hijos">
           </div>
-
           <div class="mb-3">
             <label for="formFile" class="form-label text-warning">Subir Foto</label>
             <input type="file" class="form-control" id="imgE" name="imgE" [(ngModel)]="persona.img">
           </div>
           <div class="modal-footer ">
-            <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal"
+              (click)="onDetail()">Close</button>
             <button type="submit" class="btn btn-warning text-dark">Save changes</button>
           </div>
         </form>
       </div>
-
     </div>
   </div>
 </div>
@@ -115,12 +106,11 @@
     <div class="modal-content bg-transparent  border-light ">
       <div class="modal-header ">
         <h5 class="modal-title text-warning" id="contactoModalLabel">Contacto</h5>
-        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"
+          (click)="onDetail()"></button>
       </div>
       <div class="modal-body">
         <form (ngSubmit)="onUpdate()">
-
-
           <div class="mb-3 input-group mb-3">
             <label class="input-group-text" for="inputGroupSelect01">Direccion:</label>
             <input type="text" class="form-control" id="domicilio" name="domicilio" [(ngModel)]="persona.domicilio">
@@ -134,12 +124,12 @@
             <input type="email" class="form-control" id="correo" name="correo" [(ngModel)]="persona.correo">
           </div>
           <div class="modal-footer ">
-            <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal"
+              (click)="onDetail()">Close</button>
             <button type="submit" class="btn btn-warning text-dark">Save changes</button>
           </div>
         </form>
       </div>
-
     </div>
   </div>
 </div>
@@ -154,7 +144,8 @@
     <div class="modal-content bg-transparent  border-light">
       <div class="modal-header ">
         <h5 class="modal-title text-warning" id="acercadeModalLabel">Acerca de:</h5>
-        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"
+          (click)="onDetail()"></button>
       </div>
       <div class="modal-body">
         <form (ngSubmit)="onUpdate()">
@@ -164,15 +155,16 @@
           </div>
           <div class="mb-3 ">
             <label for="exampleFormControlTextarea1" class="form-label text-warning">Sobre mi:</label>
-            <textarea class="form-control" id="acercade" name="acercade" [(ngModel)]="persona.acercade" rows="3"></textarea>
+            <textarea class="form-control" id="acercade" name="acercade" [(ngModel)]="persona.acercade"
+              rows="3"></textarea>
           </div>
           <div class="modal-footer ">
-            <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal"
+              (click)="onDetail()">Close</button>
             <button type="submit" class="btn btn-warning text-dark">Save changes</button>
           </div>
         </form>
       </div>
-
     </div>
   </div>
 </div>

@@ -16,66 +16,64 @@ export class SoftComponent implements OnInit {
   descripcionS: string;
   porcentajeS: number;
   //para update
-  sft: Soft =null;
+  sft: Soft = null;
 
-  constructor(private sSoft:SoftService, private route:ActivatedRoute, private router: Router) { }
+  constructor(private sSoft: SoftService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
- //para lista
+    //para lista
     this.cargarSoft();
   }
   cargarSoft(): void {
     this.sSoft.lista().subscribe(data => { this.soft = data });
- this.onDetail(1)
+    this.onDetail(1)
   }
-//para create
-onCreate(): void {
-  const sot = new Soft(this.tituloS, this.descripcionS, this.porcentajeS);
-  this.sSoft.save(sot).subscribe(
-    data => {
-      alert("Proyecto Añadido");
-      location.href=location.href;
-    }, err => {
-      alert("Todos los campos deben estar completos");
-      this.router.navigate(['proyectos']);
-    })
-}
+  //para create
+  onCreate(): void {
+    const sot = new Soft(this.tituloS, this.descripcionS, this.porcentajeS);
+    this.sSoft.save(sot).subscribe(
+      data => {
+        alert("Habilidad Añadida");
+        location.href = location.href;
+      }, err => {
+        alert("no se permiten campos vacios, ni habilidades repetidas");
+      })
+  }
 
-//para delete
-Delete(id?: number){
-  if(id!=undefined){
-    this.sSoft.delete(id).subscribe(
-      data=>{
-        this.cargarSoft();          
-      },err=>{
-        alert("no se pudo borrar la Habilidad");
+  //para delete
+  Delete(id?: number) {
+    if (id != undefined) {
+      this.sSoft.delete(id).subscribe(
+        data => {
+          this.cargarSoft();
+        }, err => {
+          alert("no se pudo borrar la Habilidad");
+        }
+      )
+    }
+  }
+
+  //para update
+
+  onUpdate(id?: number): void {
+    this.sSoft.update(id, this.sft).subscribe(
+      data => {
+        this.router.navigate(['soft']);
+        alert("Se ha actualizado la habilidad")
+        location.href = location.href;
+      }, err => {
+        alert("no se permiten campos vacios, ni habilidades repetidas");
       }
     )
   }
-}
-
-//para update
-
-onUpdate(id?: number): void{
-this.sSoft.update(id, this.sft).subscribe(
-  data => {
-    this.router.navigate(['soft']);
-    alert("Se ha actualizado la habilidad")
-    location.href=location.href;
-  }, err =>{
-     alert("Error al modificar habilidad");
-     this.router.navigate(['soft']);
+  onDetail(id?: number) {
+    this.sSoft.detail(id).subscribe(
+      data => {
+        this.sft = data;
+      }, err => {
+        alert("no se pudo cargar la habilidad");
+        this.router.navigate(['']);
+      }
+    )
   }
-)
-}
-onDetail(id?: number){
-this.sSoft.detail(id).subscribe(
-  data =>{
-    this.sft = data;
-  }, err =>{
-    alert("no se pudo cargar la habilidad");
-    this.router.navigate(['']);
-  }
-)
-}
 }

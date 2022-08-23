@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class HardService {
- hardURL = "Http://localhost:8080/hard/"
+  hardURL = "Http://localhost:8080/hard/"
 
   constructor(private httpClient: HttpClient) {
   }

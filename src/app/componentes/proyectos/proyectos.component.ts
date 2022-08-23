@@ -16,70 +16,70 @@ export class ProyectosComponent implements OnInit {
   fechaP: string;
   descripcionP: string;
   url: string;
-  empresaP:string;
+  empresaP: string;
   //para update
-  proyupd: Proyecto =null;
+  proyupd: Proyecto = null;
+  idn: number;
 
 
 
-  constructor(private sProyecto:ProyectoService, private route:ActivatedRoute, private router: Router) { }
+  constructor(private sProyecto: ProyectoService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-       //para lista
-       this.cargarProyecto();
+    //para lista
+    this.cargarProyecto();
   }
   cargarProyecto(): void {
     this.sProyecto.lista().subscribe(data => { this.proyecto = data });
-    this.onDetail(1);
+    this.onDetail(4)
   }
-//para create
-onCreate(): void {
-  const proye = new Proyecto(this.nombreP, this.fechaP, this.descripcionP, this.url,this.empresaP);
-  this.sProyecto.save(proye).subscribe(
-    data => {
-      alert("Proyecto Añadido");
-      this.router.navigate(['proyectos']);
-    }, err => {
-      alert("Todos los campos deben estar completos");
-      this.router.navigate(['proyectos']);
-    })
-}
+  //para create
+  onCreate(): void {
+    const proye = new Proyecto(this.nombreP, this.fechaP, this.descripcionP, this.url, this.empresaP);
+    this.sProyecto.save(proye).subscribe(
+      data => {
+        alert("Proyecto Añadido");
+        location.href = location.href;
+      }, err => {
+        alert("no se permiten campos vacios, ni proyectos repetidos");
+      })
+  }
 
-//para delete
-Delete(id?: number){
-  if(id!=undefined){
-    this.sProyecto.delete(id).subscribe(
-      data=>{
-        this.cargarProyecto();          
-      },err=>{
-        alert("no se pudo borrar el proyecto");
+  //para delete
+  Delete(id?: number) {
+    if (id != undefined) {
+      this.sProyecto.delete(id).subscribe(
+        data => {
+          this.cargarProyecto();
+        }, err => {
+          alert("no se pudo borrar el proyecto");
+        }
+      )
+    }
+  }
+
+  //para update
+
+  onUpdate(id?: number): void {
+    this.sProyecto.update(id, this.proyupd)
+      .subscribe(
+        data => {
+          alert("Proyecto Modificado");
+          location.href = location.href;
+        }, err => {
+          alert("no se permiten campos vacios, ni proyectos repetidos");
+        }
+      )
+  }
+
+  onDetail(id?: number) {
+    this.sProyecto.detail(id).subscribe(
+      data => {
+        this.proyupd = data;
       }
     )
   }
-}
 
-//para update
 
-onUpdate(id?: number): void{
-this.sProyecto.update(id, this.proyupd).subscribe(
-  data => {
-    this.router.navigate(['proyectos']);
-    location.href=location.href;
-  }, err =>{
-     alert("Error al modificar proyeco");
-     this.router.navigate(['proyectos']);
-  }
-)
-}
-onDetail(id?: number){
-this.sProyecto.detail(id).subscribe(
-  data =>{
-    this.proyupd = data;
-  }, err =>{
-    alert("no se pudo cargar el Proyecto");
-    this.router.navigate(['']);
-  }
-)
-}
-  
+
 }
