@@ -14,7 +14,8 @@
       </div>
     </div>
   </div>
-  <div class="position-absolute top-0 end-0 bg-warning p-1  "><i class="bi bi-plus-lg" data-bs-toggle="modal" data-bs-target="#nestudios"></i></div>
+  <div class="position-absolute top-0 end-0 bg-warning p-1  "><i class="bi bi-plus-lg" data-bs-toggle="modal"
+      data-bs-target="#nestudios"></i></div>
 </div>
 
 <!-- aqui se construyo el modal edit-->
@@ -24,7 +25,8 @@
     <div class="modal-content bg-transparent  border-light ">
       <div class="modal-header ">
         <h5 class="modal-title text-warning" id="estudiosModalLabel">Estudios</h5>
-        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"
+          (click)="cargarEstudio()"></button>
       </div>
       <div class="modal-body">
         <form (ngSubmit)="onUpdate(estupd.id)">
@@ -52,14 +54,14 @@
             <label class="input-group-text" for="inputGroupSelect01">Estado</label>
             <input type="text" class="form-control" id="estado" name="estado" [(ngModel)]="estupd.estado">
           </div>
-
           <div class="mb-3">
             <label for="formFile" class="form-label text-warning">Subir logo</label>
             <input type="file" class="form-control" id="imgest" name="imgest" [(ngModel)]="estupd.imgest">
           </div>
           <div class="modal-footer ">
-            <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-warning text-dark" data-bs-dismiss="modal">Save changes</button>
+            <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal"
+              (click)="cargarEstudio()">Close</button>
+            <button type="submit" class="btn btn-warning text-dark">Save changes</button>
           </div>
         </form>
       </div>
@@ -74,7 +76,8 @@
     <div class="modal-content bg-transparent  border-light ">
       <div class="modal-header ">
         <h5 class="modal-title text-warning" id="nestudiosModalLabel">Nuevo Estudios</h5>
-        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"
+          (click)="cargarEstudio()"></button>
       </div>
       <div class="modal-body">
         <form (ngSubmit)="onCreate()">
@@ -86,8 +89,7 @@
           </div>
           <div class="mb-3 input-group mb-3">
             <label class="input-group-text" for="inputGroupSelect01">Institucion</label>
-            <input type="text" class="form-control" id="institucion" name="institucion"
-              [(ngModel)]="institucion">
+            <input type="text" class="form-control" id="institucion" name="institucion" [(ngModel)]="institucion">
           </div>
           <div class="mb-3 input-group mb-3">
             <label class="input-group-text" for="inputGroupSelect01">Titulo</label>
@@ -102,14 +104,14 @@
             <label class="input-group-text" for="inputGroupSelect01">Estado</label>
             <input type="text" class="form-control" id="estado" name="estado" [(ngModel)]="estado">
           </div>
-
           <div class="mb-3">
             <label for="formFile" class="form-label text-warning">Subir logo</label>
             <input type="file" class="form-control" id="imgest" name="imgest" [(ngModel)]="imgest">
           </div>
           <div class="modal-footer ">
-            <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-warning text-dark" data-bs-dismiss="modal">Save changes</button>
+            <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal"
+              (click)="cargarEstudio()">Close</button>
+            <button type="submit" class="btn btn-warning text-dark">Save changes</button>
           </div>
         </form>
       </div>
