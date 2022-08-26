@@ -1,0 +1,27 @@
+<div class="card bg-transparent">
+    <div class="container ">
+      <div class="row ">
+        <div>
+          <form (ngSubmit)="onUpdate()">
+            <div class="input-group input-group-sm mb-3">
+              <span class="input-group-text">Titulo</span>
+              <input type="text" class="form-control" id="tituloH" name="tituloH" [(ngModel)]="hard.tituloH" >
+            </div>
+            <div class="input-group input-group-sm mb-3">
+              <span class="input-group-text">Descripcion</span>
+              <input type="text" class="form-control" id="descripcionH" name="descripcionH" [(ngModel)]="hard.descripcionH" >
+            </div>
+            <div class="input-group input-group-sm mb-3">
+              <span class="input-group-text">Porcentaje</span>
+              <input type="number" class="form-control" id="porcentajeH" name="porcentajeH" [(ngModel)]="hard.porcentajeH" >
+            </div>
+            <div>
+              <button type="button" class="btn btn-secondary text-warning" routerLink="/experiencia">Close</button>
+              <button type="submit" class="btn btn-warning text-dark">Save changes</button>
+            </div>
+  
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

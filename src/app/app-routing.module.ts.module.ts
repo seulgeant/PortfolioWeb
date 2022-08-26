@@ -1,4 +1,5 @@
-
+import { EditarhardComponent } from './componentes/hard/editarhard.component';
+import { ModaleditComponent } from './componentes/proyectos/modaledit/modaledit.component';
 import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
 import { SoftComponent } from './componentes/soft/soft.component';
 import { HardComponent } from './componentes/hard/hard.component';
@@ -10,8 +11,12 @@ import { HomeComponent } from './componentes/home/home.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { EditarestudiosComponent } from './componentes/estudios/editarestudios.component';
+import { EditarexperienciaComponent } from './componentes/experiencia-laboral/editarexperiencia.component';
+import { EditarsoftComponent } from './componentes/soft/editarsoft.component';
+
 const routes:Routes=[
-  {path:'',redirectTo:'/inicio', pathMatch:'full'},
+{path:'',redirectTo:'/inicio', pathMatch:'full'},
 {path:'inicio', component:HomeComponent},
 {path:'datos-personales',component:DatosPersonalesComponent},
 {path:'objetivos', component:ObjetivosComponent},
@@ -19,7 +24,12 @@ const routes:Routes=[
 {path:'experiencia', component:ExperienciaLaboralComponent},
 {path:'hard', component:HardComponent},
 {path:'soft', component:SoftComponent},
-{path:'proyectos', component:ProyectosComponent}
+{path:'proyectos', component:ProyectosComponent},
+{path:'editarproyecto/:id',component:ModaleditComponent},
+{path:'editarestudio/:id',component:EditarestudiosComponent},
+{path:'editarexperiencia/:id',component:EditarexperienciaComponent},
+{path:'editarhard/:id',component:EditarhardComponent},
+{path:'editarsoft/:id',component:EditarsoftComponent}
 ]
 
 

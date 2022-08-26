@@ -1,0 +1,40 @@
+<div class="card bg-transparent">
+  <div class="container ">
+    <div class="row ">
+      <div>
+        <form (ngSubmit)="onUpdate()">
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text">Empresa</span>
+            <input type="text" class="form-control" id="empresaE" name="empresaE" [(ngModel)]="experiencia.empresaE" >
+          </div>
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text">Cargo</span>
+            <input type="text" class="form-control" id="cargoE" name="cargoE" [(ngModel)]="experiencia.cargoE" >
+          </div>
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text">Domicilio</span>
+            <input type="text" class="form-control" id="domicilioE" name="domicilioE" [(ngModel)]="experiencia.domicilioE" >
+          </div>
+          <div class="mb-3 ">
+            <label for="exampleFormControlTextarea1" class="form-label text-warning">Descripcion</label>
+            <textarea class="form-control" id="descripcionE" name="descripcionE" [(ngModel)]="experiencia.descripcionE" rows="3"></textarea>
+          </div>
+          <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">desde/hasta</label>
+            <input type="date" id="desdeE" name="desdeE" [(ngModel)]="experiencia.desdeE">
+            <input type="text" id="hastaE" name="hastaE" [(ngModel)]="experiencia.hastaE">
+          </div>
+          <div class="mb-3">
+            <label for="formFile" class="form-label text-warning">Subir logo</label>
+            <input type="file" class="form-control" id="imgE" name="imgE"  [(ngModel)]="experiencia.imgE">
+          </div>
+          <div>
+            <button type="button" class="btn btn-secondary text-warning" routerLink="/experiencia">Close</button>
+            <button type="submit" class="btn btn-warning text-dark">Save changes</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

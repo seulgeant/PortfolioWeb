@@ -1,52 +1,65 @@
 h1 {
-    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
-    font-size: 10vh;
-    padding: 10vh 5vw;
-    text-align: center;
-    text-transform: uppercase;
-    text-rendering: optimizeLegibility;
-} 
-    .tresde {
-      color: orange;
-      
-      letter-spacing: .15em;
-      text-shadow: 
-        1px -1px 0 rgb(70, 45, 0), 
-        -1px 2px 1px rgb(54, 36, 1), 
-        -2px 4px 1px #1d80d1, 
-        -3px 6px 1px #1773be, 
-        -4px 8px 1px #156aaf, 
-        -5px 10px 1px #1360a0, 
-        -6px 12px 1px #125e9c, 
-        -7px 14px 1px #135b96, 
-        -8px 16px 1px #125388, 
-        -9px 18px 1px #114f81, 
-        -10px 20px 1px #104b7a, 
-        -11px 22px 1px #104977, 
-        -12px 24px 1px #0f4470, 
-        -13px 26px 1px #0d3f68, 
-        -14px 28px 1px #0e416b, 
-        -15px 30px 1px #0e3e66, 
-        -16px 32px 1px #0e3b61, 
-        -17px 34px 1px #0d385c, 
-        -18px 36px 1px #0c3455, 
-        -19px 38px 1px #0b2f4d, 
-        -20px 40px 1px #09273f, 
-        -21px 42px 1px #082136, 
-        -22px 44px 1px #071d30, 
-        -23px 46px 1px #071c2e, 
-        -24px 48px 1px #061725, 
-        -25px 50px 1px #051522, 
-        -26px 52px 1px #04121d, 
-        -27px 54px 1px #030c13, 
-        -28px 56px 1px #010305;
-        animation: palabras 4s ;
-    }
-    @keyframes palabras {
-       
-            0%   {transform:translateX(-100vw) ;}
-            25%   {transform:translateX(5vw) ;}
-            50%  {transform:translateX(-5vw) ;}
-            100%  {transform:translateX(0vw) ;}
-          
-    }
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  font-size: 10vh;
+  padding: 10vh 5vw;
+  text-align: center;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+}
+
+.tresde {
+  color: orange;
+
+  letter-spacing: .15em;
+  text-shadow:
+    1px -1px 0 rgb(70, 45, 0),
+    -1px 2px 1px rgb(54, 36, 1),
+    -2px 4px 1px #1d80d1,
+    -3px 6px 1px #1773be,
+    -4px 8px 1px #156aaf,
+    -5px 10px 1px #1360a0,
+    -6px 12px 1px #125e9c,
+    -7px 14px 1px #135b96,
+    -8px 16px 1px #125388,
+    -9px 18px 1px #114f81,
+    -10px 20px 1px #104b7a,
+    -11px 22px 1px #104977,
+    -12px 24px 1px #0f4470,
+    -13px 26px 1px #0d3f68,
+    -14px 28px 1px #0e416b,
+    -15px 30px 1px #0e3e66,
+    -16px 32px 1px #0e3b61,
+    -17px 34px 1px #0d385c,
+    -18px 36px 1px #0c3455,
+    -19px 38px 1px #0b2f4d,
+    -20px 40px 1px #09273f,
+    -21px 42px 1px #082136,
+    -22px 44px 1px #071d30,
+    -23px 46px 1px #071c2e,
+    -24px 48px 1px #061725,
+    -25px 50px 1px #051522,
+    -26px 52px 1px #04121d,
+    -27px 54px 1px #030c13,
+    -28px 56px 1px #010305;
+  animation: palabras 4s;
+}
+
+@keyframes palabras {
+
+  0% {
+    transform: translateX(-100vw);
+  }
+
+  25% {
+    transform: translateX(5vw);
+  }
+
+  50% {
+    transform: translateX(-5vw);
+  }
+
+  100% {
+    transform: translateX(0vw);
+  }
+
+}
