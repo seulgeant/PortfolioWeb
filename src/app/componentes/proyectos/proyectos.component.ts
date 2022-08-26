@@ -1,3 +1,4 @@
+import { TokenService } from './../../service/token.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Proyecto } from 'src/app/model/proyecto.model';
@@ -20,18 +21,37 @@ export class ProyectosComponent implements OnInit {
   //para update
   proyupd: Proyecto = null;
   idn: number;
+    //para verificar loguer
+    logged= false;
+    roles:string[]=[];
+    isAdmin:boolean=false;
 
 
-
-  constructor(private sProyecto: ProyectoService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private sProyecto: ProyectoService, private route: ActivatedRoute, private router: Router,private tokenService:TokenService) { }
 
   ngOnInit(): void {
     //para lista
     this.cargarProyecto();
+//para logger
+if(this.tokenService.getToken()){
+  this.logged=true;
+  this.roles=this.tokenService.getAuthorities();
+  for(let rol of this.roles){
+ if(rol=="ROLE_ADMIN"){
+  this.isAdmin=true
+  break;
+ }else{this.isAdmin=false}
+}
+}else{
+  this.logged=false;
+  this.router.navigate(['']);
+}
   }
+
+
   cargarProyecto(): void {
+
     this.sProyecto.lista().subscribe(data => { this.proyecto = data });
-    this.onDetail(4)
   }
   //para create
   onCreate(): void {
@@ -60,26 +80,6 @@ export class ProyectosComponent implements OnInit {
 
   //para update
 
-  onUpdate(id?: number): void {
-    this.sProyecto.update(id, this.proyupd)
-      .subscribe(
-        data => {
-          alert("Proyecto Modificado");
-          location.href = location.href;
-        }, err => {
-          alert("no se permiten campos vacios, ni proyectos repetidos");
-        }
-      )
-  }
-
-  onDetail(id?: number) {
-    this.sProyecto.detail(id).subscribe(
-      data => {
-        this.proyupd = data;
-      }
-    )
-  }
-
-
+ 
 
 }

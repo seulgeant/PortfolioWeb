@@ -1,3 +1,4 @@
+import { TokenService } from './../../service/token.service';
 import { objetivo } from './../../model/Objetivo.model';
 import { Component, OnInit } from '@angular/core';
 import { ObjetivoService } from 'src/app/service/objetivo.service';
@@ -10,11 +11,30 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ObjetivosComponent implements OnInit {
   objetivo: objetivo = null;
+    //para verificar loguer
+logged= false;
+roles:string[]=[];
+isAdmin:boolean=false;
 
-  constructor(private sObjetivo: ObjetivoService, private route: ActivatedRoute, private router: Router) { }
+
+  constructor(private sObjetivo: ObjetivoService, private route: ActivatedRoute, private router: Router,private tokenService:TokenService) { }
 
   ngOnInit(): void {
     this.onDetail();
+//para logger
+if(this.tokenService.getToken()){
+  this.logged=true;
+  this.roles=this.tokenService.getAuthorities();
+  for(let rol of this.roles){
+ if(rol=="ROLE_ADMIN"){
+  this.isAdmin=true
+  break;
+ }else{this.isAdmin=false}
+}
+}else{
+  this.logged=false;
+  this.router.navigate(['']);
+}
   }
 
   //para traer datos

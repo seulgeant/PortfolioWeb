@@ -1,0 +1,38 @@
+
+
+<div class="card bg-transparent" >
+    <div class="container ">
+    <div class="row ">
+        <div class=""> 
+            <form (ngSubmit)="onUpdate()" >
+                <div class="input-group input-group-sm mb-3" >
+                    <span class="input-group-text" >Empresa</span>
+                    <input type="text" class="form-control" id="empresaP" name="empresaP" [(ngModel)]="proyupd.empresaP">
+                  </div>
+                  <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" >Nombre Proyecto</span>
+                    <input type="text" class="form-control" id="nombreP" name="nombreP" [(ngModel)]="proyupd.nombreP">
+                  </div>
+                  <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" >Fecha</span>
+                    <input type="date" class="form-control" id="fechaP" name="fechaP" [(ngModel)]="proyupd.fechaP">
+                  </div>
+                  <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" >URL</span>
+                    <input type="text" class="form-control" id="url" name="url" [(ngModel)]="proyupd.url">
+                  </div>
+                  <div class="mb-3 text-warning">
+                    <label for="exampleFormControlTextarea1 " class="form-label">Descripcion</label>
+                    <textarea class="form-control" id="descripcionP" name="descripcionP" [(ngModel)]="proyupd.descripcionP"
+                      rows="3"></textarea>
+                  </div>
+                  <div >
+                    <button type="button" class="btn btn-secondary text-warning" routerLink="/proyectos">Close</button>
+                    <button type="submit" class="btn btn-warning text-dark">Save changes</button>
+                  </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+</div>

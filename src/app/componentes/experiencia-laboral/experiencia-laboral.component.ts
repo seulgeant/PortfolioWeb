@@ -1,3 +1,4 @@
+import { TokenService } from './../../service/token.service';
 import { SExperienciaService } from './../../service/s-experiencia.service';
 import { Experiencia } from '../../model/experiencia.model';
 import { Component, OnInit } from '@angular/core';
@@ -18,29 +19,43 @@ export class ExperienciaLaboralComponent implements OnInit {
   hastaE: string = "";
   domicilioE: string = "";
   descripcionE: string = "";
-  imgE: string = "";
+  imgE: string="" ;
   //para update
   expedit: Experiencia = null;
+//para verificar loguer
+logged= false;
+roles:string[]=[];
+isAdmin:boolean=false;
 
 
 
 
 
-
-  constructor(private sExperiencia: SExperienciaService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private sExperiencia: SExperienciaService, private route: ActivatedRoute, private router: Router,private tokenService:TokenService) { }
 
   ngOnInit(): void {
     //para lista
     this.cargarExperiencia();
-    //para update
-
+ //para logger
+ if(this.tokenService.getToken()){
+  this.logged=true;
+  this.roles=this.tokenService.getAuthorities();
+  for(let rol of this.roles){
+ if(rol=="ROLE_ADMIN"){
+  this.isAdmin=true
+  break;
+ }else{this.isAdmin=false}
+}
+}else{
+  this.logged=false;
+  this.router.navigate(['']);
+}
 
 
   }
 
   cargarExperiencia(): void {
     this.sExperiencia.lista().subscribe(data => { this.experiencia = data });
-    this.onDetail(1);
   }
 
   //para create
@@ -69,29 +84,5 @@ export class ExperienciaLaboralComponent implements OnInit {
     }
   }
 
-  //para update
-
-  onUpdate(id?: number): void {
-    this.sExperiencia.update(id, this.expedit).subscribe(
-      data => {
-        alert("Se agrego Experiencia");
-        location.href = location.href;
-      }, err => {
-        alert("Error al modificar experiencia");
-
-      }
-    )
-  }
-  onDetail(id?: number) {
-    this.sExperiencia.detail(id).subscribe(
-      data => {
-        this.expedit = data;
-      }, err => {
-        alert("Eno se pudo cargar la experiencia");
-        this.router.navigate(['']);
-      }
-    )
-  }
-
-
+  
 }

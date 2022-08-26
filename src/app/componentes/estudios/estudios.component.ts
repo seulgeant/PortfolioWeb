@@ -1,3 +1,4 @@
+import { TokenService } from './../../service/token.service';
 import { SestudioService } from './../../service/sestudio.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -23,25 +24,40 @@ export class EstudiosComponent implements OnInit {
   imgest: string;
   //para update
   estupd: Estudio = null;
+  //para verificar loguer
+  logged= false;
+  roles:string[]=[];
+  isAdmin:boolean=false;
 
 
 
 
 
-  constructor(private sEstudio: SestudioService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private sEstudio: SestudioService, private route: ActivatedRoute, private router: Router,private tokenService:TokenService) { }
 
   ngOnInit(): void {
     //para lista
     this.cargarEstudio();
-    //para update
-
+    //para logger
+   if(this.tokenService.getToken()){
+    this.logged=true;
+    this.roles=this.tokenService.getAuthorities();
+    for(let rol of this.roles){
+   if(rol=="ROLE_ADMIN"){
+    this.isAdmin=true
+    break;
+   }else{this.isAdmin=false}
+  }
+  }else{
+    this.logged=false;
+    this.router.navigate(['']);
+  }
 
 
   }
 
   cargarEstudio(): void {
     this.sEstudio.lista().subscribe(data => { this.estudio = data });
-    this.onDetail(1);
   }
 
   //para create
@@ -70,28 +86,5 @@ export class EstudiosComponent implements OnInit {
     }
   }
 
-  //para update
-
-  onUpdate(id?: number): void {
-    this.sEstudio.update(id, this.estupd).subscribe(
-      data => {
-        alert('Se cargo correctamente');
-        location.href = location.href;
-      }, err => {
-        alert("Error al modificar experiencia");
-
-      }
-    )
-  }
-  onDetail(id?: number) {
-    this.sEstudio.detail(id).subscribe(
-      data => {
-        this.estupd = data;
-      }, err => {
-        alert("no se pudo cargar la experiencia");
-        this.router.navigate(['']);
-      }
-    )
-  }
-
+  
 }

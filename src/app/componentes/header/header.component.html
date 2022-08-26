@@ -25,7 +25,7 @@
 
       <!-- Aquí se crearon los iconos desde bootstrap de las redes sociales-->
 
-      <ul class="navbar-nav flex-row flex-wrap ms-auto">
+      <ul class="navbar-nav flex-row flex-wrap ms-auto" *ngIf="logged">
         <li class="nav-item col-6 col-md-auto -3 ">
           <a href="https://www.facebook.com" style="text-decoration:none">
             <i class="bi bi-facebook" style="font-size: 3vw; color: whitesmoke;margin-right:0.5vw;"></i>
@@ -52,14 +52,17 @@
         </li>
       </ul>
 
-      <!-- Desde Aquí se creo el boton del login -->
+      <!-- Desde Aquí se creo el boton del login y Logout -->
 
-      <form class="d-flex" role="search">
-        <button type="button" class="btn btn-outline-warning" style="border:0.5vw outset rgb(255, 217, 0);
-            border-radius: 1vw;min-height: 8vh ;min-width: 6.5vw;" data-bs-toggle="modal"
-          data-bs-target="#exampleModal"><b>ENTRAR</b></button>
-      </form>
+      
     </div>
+    <form class="d-flex " role="search">
+      <button type="button" class="btn btn-outline-warning" style="border:0.5vw outset rgb(255, 217, 0);
+          border-radius: 1vw;min-height: 8vh ;min-width: 6.5vw;" data-bs-toggle="modal"
+        data-bs-target="#exampleModal" *ngIf="!logged"><b>ENTRAR</b></button>
+        <button type="submit" class="btn btn-outline-warning" style="border:0.5vw outset rgb(255, 217, 0);
+        border-radius: 1vw;min-height: 8vh ;min-width: 6.5vw;"*ngIf="logged" (click)="Logout()"><b>Salir</b></button>
+    </form>
   </div>
 </nav>
 
@@ -73,17 +76,17 @@
         <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form (ngSubmit)="OnLogin()" >
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <label for="exampleInputText1" class="form-label">Usuario</label>
+            <input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario" [(ngModel)]="nombreUsuario">
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password">
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn btn-warning">Ingresar</button>
+            <button type="submit" class="btn btn-warning" data-bs-dismiss="modal">Ingresar</button>
           </div>
         </form>
       </div>

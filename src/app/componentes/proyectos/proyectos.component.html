@@ -6,57 +6,14 @@
       <h6 class="card-subtitle mb-2 ">Fecha:{{Proyecto.fechaP}}</h6>
       <h6 class="card-subtitle mb-2 ">URL: {{Proyecto.url}}</h6>
       <p class="card-text ">Descripcion: {{Proyecto.descripcionP}}</p>
-      <div class="position-absolute bottom-0 end-0 ">
-        <i class="bi bi-pencil me-2 text-warning" data-bs-toggle="modal" data-bs-target="#proyectos"
-          (click)="onDetail(Proyecto.id)"></i>
+      <div class="position-absolute bottom-0 end-0 " *ngIf="isAdmin">
+        <i class="bi bi-pencil me-2 text-warning" routerLink="/editarproyecto/{{Proyecto.id}}"></i>
         <i class="bi bi-trash me-2 text-warning " (click)="Delete(Proyecto.id)"></i>
       </div>
     </div>
   </div>
-  <div class="position-absolute top-0 end-0 bg-warning p-1  "><i class="bi bi-plus-lg" data-bs-toggle="modal"
+  <div class="position-absolute top-0 end-0 bg-warning p-1" *ngIf="isAdmin"><i class="bi bi-plus-lg" data-bs-toggle="modal"
       data-bs-target="#nproyectos"></i>
-  </div>
-</div>
-
-<!-- aqui se construyo el modal edit-->
-
-<div class="modal fade  " id="proyectos" tabindex="-1" aria-labelledby="proyectosModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered ">
-    <div class="modal-content bg-transparent  border-light ">
-      <div class="modal-header ">
-        <h5 class="modal-title text-warning" id="proyectosModalLabel">Proyectos</h5>
-        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form (ngSubmit)="onUpdate(proyupd.id)">
-          <div class="mb-3 input-group mb-3">
-            <label class="input-group-text" for="inputGroupSelect01">Empresa</label>
-            <input type="text" class="form-control" id="empresa" name="empresa" [(ngModel)]="proyupd.empresaP">
-          </div>
-          <div class="mb-3 input-group mb-3">
-            <label class="input-group-text" for="inputGroupSelect01">Nombre Proyecto</label>
-            <input type="text" class="form-control" id="titulo" name="titulo" [(ngModel)]="proyupd.nombreP">
-          </div>
-          <div class="input-group mb-3">
-            <label class="input-group-text" for="inputGroupSelect01">Fecha</label>
-            <input type="date" id="fechaP" name="fechaP" [(ngModel)]="proyupd.fechaP">
-          </div>
-          <div class="mb-3 input-group mb-3">
-            <label class="input-group-text" for="inputGroupSelect01">URL</label>
-            <input type="text" class="form-control" id="url" name="url" [(ngModel)]="proyupd.url">
-          </div>
-          <div class="mb-3 text-warning">
-            <label for="exampleFormControlTextarea1 " class="form-label">Descripcion</label>
-            <textarea class="form-control" id="descripcionP" name="descripcionP" [(ngModel)]="proyupd.descripcionP"
-              rows="3"></textarea>
-          </div>
-          <div class="modal-footer ">
-            <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-warning text-dark">Save changes</button>
-          </div>
-        </form>
-      </div>
-    </div>
   </div>
 </div>
 

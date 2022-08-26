@@ -1,3 +1,4 @@
+import { TokenService } from './../../service/token.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Hard } from 'src/app/model/Hard.model';
@@ -17,15 +18,36 @@ export class HardComponent implements OnInit {
   porcentajeH: number;
   //para update
   hrd: Hard = null;
-  constructor(private sHard: HardService, private route: ActivatedRoute, private router: Router) { }
+  //para verificar loguer
+logged= false;
+roles:string[]=[];
+isAdmin:boolean=false;
+
+
+
+  constructor(private sHard: HardService, private route: ActivatedRoute, private router: Router,private tokenService:TokenService ) { }
 
   ngOnInit(): void {
     //para lista
     this.cargarHard();
+ //para logger
+ if(this.tokenService.getToken()){
+  this.logged=true;
+  this.roles=this.tokenService.getAuthorities();
+  for(let rol of this.roles){
+ if(rol=="ROLE_ADMIN"){
+  this.isAdmin=true
+  break;
+ }else{this.isAdmin=false}
+}
+}else{
+  this.logged=false;
+  this.router.navigate(['']);
+}
   }
+  
   cargarHard(): void {
     this.sHard.lista().subscribe(data => { this.hard = data });
-    this.onDetail(1)
   }
   //para create
   onCreate(): void {
@@ -52,29 +74,6 @@ export class HardComponent implements OnInit {
     }
   }
 
-  //para update
 
-  onUpdate(id?: number): void {
-    this.sHard.update(id, this.hrd).subscribe(
-      data => {
-        this.router.navigate(['hard']);
-        alert("Se ha actualizado la habilidad")
-        location.href = location.href;
-      }, err => {
-        alert("Los campos no pueden estar vacios");
-
-      }
-    )
-  }
-  onDetail(id?: number) {
-    this.sHard.detail(id).subscribe(
-      data => {
-        this.hrd = data;
-      }, err => {
-        alert("no se pudo cargar la habilidad");
-        this.router.navigate(['']);
-      }
-    )
-  }
 
 }

@@ -9,7 +9,7 @@
           <h5 class="card-header text-center">EXPECTATIVA</h5>
           <div class="card-body">
             <p class="card-text text-center">{{objetivo.descripcionE}} </p>
-            <div class="position-absolute  end-0 bottom-0"><i class="bi bi-pencil me-2 text-warning"
+            <div class="position-absolute  end-0 bottom-0" *ngIf="isAdmin"><i class="bi bi-pencil me-2 text-warning"
                 data-bs-toggle="modal" data-bs-target="#expectativas"></i></div>
           </div>
         </div>
@@ -24,7 +24,7 @@
           <h5 class="card-header text-center">OPORTUNIDADES DE MEJORA</h5>
           <div class="card-body">
             <p class="card-text text-center">{{objetivo.descripcionM}}</p>
-            <div class="position-absolute  end-0 bottom-0"><i class="bi bi-pencil me-2 text-warning "
+            <div class="position-absolute  end-0 bottom-0" *ngIf="isAdmin"><i class="bi bi-pencil me-2 text-warning "
                 data-bs-toggle="modal" data-bs-target="#oportunidades"></i></div>
           </div>
         </div>
@@ -40,7 +40,7 @@
           <div class="card-body">
 
             <p class="card-text text-center">{{objetivo.descripcionF}}</p>
-            <div class="position-absolute  bottom-0 end-0"><i class="bi bi-pencil me-2 text-warning"
+            <div class="position-absolute  bottom-0 end-0" *ngIf="isAdmin"><i class="bi bi-pencil me-2 text-warning"
                 data-bs-toggle="modal" data-bs-target="#fortalezas"></i></div>
           </div>
         </div>

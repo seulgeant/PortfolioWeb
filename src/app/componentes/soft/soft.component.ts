@@ -2,6 +2,7 @@ import { SoftService } from './../../service/soft.service';
 import { Component, OnInit } from '@angular/core';
 import { Soft } from 'src/app/model/Soft.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-soft',
@@ -17,16 +18,33 @@ export class SoftComponent implements OnInit {
   porcentajeS: number;
   //para update
   sft: Soft = null;
+    //para verificar loguer
+    logged= false;
+    roles:string[]=[];
+    isAdmin:boolean=false;
 
-  constructor(private sSoft: SoftService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private sSoft: SoftService, private route: ActivatedRoute, private router: Router,private tokenService:TokenService) { }
 
   ngOnInit(): void {
     //para lista
     this.cargarSoft();
+//para logger
+if(this.tokenService.getToken()){
+  this.logged=true;
+  this.roles=this.tokenService.getAuthorities();
+  for(let rol of this.roles){
+ if(rol=="ROLE_ADMIN"){
+  this.isAdmin=true
+  break;
+ }else{this.isAdmin=false}
+}
+}else{
+  this.logged=false;
+  this.router.navigate(['']);
+}
   }
   cargarSoft(): void {
     this.sSoft.lista().subscribe(data => { this.soft = data });
-    this.onDetail(1)
   }
   //para create
   onCreate(): void {
@@ -53,27 +71,4 @@ export class SoftComponent implements OnInit {
     }
   }
 
-  //para update
-
-  onUpdate(id?: number): void {
-    this.sSoft.update(id, this.sft).subscribe(
-      data => {
-        this.router.navigate(['soft']);
-        alert("Se ha actualizado la habilidad")
-        location.href = location.href;
-      }, err => {
-        alert("no se permiten campos vacios, ni habilidades repetidas");
-      }
-    )
-  }
-  onDetail(id?: number) {
-    this.sSoft.detail(id).subscribe(
-      data => {
-        this.sft = data;
-      }, err => {
-        alert("no se pudo cargar la habilidad");
-        this.router.navigate(['']);
-      }
-    )
-  }
 }
