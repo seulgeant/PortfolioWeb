@@ -1,3 +1,6 @@
+import { EditarsoftComponent } from './componentes/soft/editarsoft.component';
+import { EditarestudiosComponent } from './componentes/estudios/editarestudios.component';
+import { ModaleditComponent } from './componentes/proyectos/modaledit/modaledit.component';
 import { AppRoutingModule } from './app-routing.module.ts.module';
 import { MenubarComponent } from './componentes/menubar/menubar.component';
 import { HeaderComponent } from './componentes/header/header.component';
@@ -15,6 +18,8 @@ import { HardComponent } from './componentes/hard/hard.component';
 import { FondoComponent } from './componentes/fondo/fondo.component';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { EditarexperienciaComponent } from './componentes/experiencia-laboral/editarexperiencia.component';
+import { EditarhardComponent } from './componentes/hard/editarhard.component';
 
 
 @NgModule({
@@ -30,7 +35,12 @@ import { FormsModule } from '@angular/forms';
     ObjetivosComponent,
     SoftComponent,
     HardComponent,
-    FondoComponent
+    FondoComponent,
+    ModaleditComponent,
+    EditarestudiosComponent,
+    EditarexperienciaComponent,
+    EditarhardComponent,
+    EditarsoftComponent
   ],
   imports: [
     BrowserModule,

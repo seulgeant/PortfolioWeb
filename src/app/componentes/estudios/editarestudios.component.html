@@ -1,0 +1,42 @@
+
+
+<div class="card bg-transparent" >
+    <div class="container ">
+    <div class="row ">
+        <div class=""> 
+            <form (ngSubmit)="onUpdate()" >
+                <div class="input-group input-group-sm mb-3" >
+                    <span class="input-group-text" >Nivel</span>
+                    <input type="text" class="form-control" id="nivel" name="nivel" [(ngModel)]="estudio.nivel">
+                  </div>
+                  <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" >Institucion</span>
+                    <input type="text" class="form-control" id="institucion" name="institucion" [(ngModel)]="estudio.institucion">
+                  </div>
+                  <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" >Titulos</span>
+                    <input type="text" class="form-control" id="tituo" name="titulo" [(ngModel)]="estudio.titulo">
+                  </div>
+                  <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" >Estado</span>
+                    <input type="text" class="form-control" id="estado" name="estado" [(ngModel)]="estudio.estado">
+                  </div>
+                  <div class="input-group mb-3">
+                    <label class="input-group-text" for="inputGroupSelect01">desde/hasta</label>
+                    <input type="date" id="desde" name="desde" [(ngModel)]="estudio.desde">
+                    <input type="text" id="hasta" name="hasta" [(ngModel)]="estudio.hasta">
+                  </div>
+                  <div class="mb-3">
+                    <label for="formFile" class="form-label text-warning">Subir logo</label>
+                    <input type="file" class="form-control" id="imgest" name="imgest" [(ngModel)]="estudio.imgest">
+                  </div>
+                  <div >
+                    <button type="button" class="btn btn-secondary text-warning" routerLink="/estudios">Close</button>
+                    <button type="submit" class="btn btn-warning text-dark">Save changes</button>
+                  </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+</div>

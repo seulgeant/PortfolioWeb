@@ -1,22 +1,24 @@
-a{
+a {
     color: #2196f3;
-    text-align:center;
+    text-align: center;
     text-transform: uppercase;
     font-size: 2.1vh;
     letter-spacing: 4px;
-    overflow:hidden;
+    overflow: hidden;
     transition: 1s;
     height: 100%;
-    }
-a:hover{
-    color:#255784;
-    background:#2196f3;
-    box-shadow:0 0 10px #2196f3 , 0 0 40px #2196f3, 0 0 80px #2196f3; ;
+}
+
+a:hover {
+    color: #255784;
+    background: #2196f3;
+    box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
+    ;
 
 }
-li a.active{
-    background-color:rgba(33, 150, 243,0.2);
+
+li a.active {
+    background-color: rgba(33, 150, 243, 0.2);
     border-style: none none solid none;
     color: #2196f3;
 }
-

@@ -1,5 +1,6 @@
+import { TokenService } from './../../service/token.service';
 import { SExperienciaService } from './../../service/s-experiencia.service';
-import { Experiencia } from './../../model/experiencia';
+import { Experiencia } from '../../model/experiencia.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -18,29 +19,43 @@ export class ExperienciaLaboralComponent implements OnInit {
   hastaE: string = "";
   domicilioE: string = "";
   descripcionE: string = "";
-  imgE: string = "";
+  imgE: string="" ;
   //para update
-  expedit: Experiencia =null;
+  expedit: Experiencia = null;
+//para verificar loguer
+logged= false;
+roles:string[]=[];
+isAdmin:boolean=false;
 
-  
 
 
 
 
-  constructor(private sExperiencia:SExperienciaService, private route:ActivatedRoute, private router: Router) { }
+  constructor(private sExperiencia: SExperienciaService, private route: ActivatedRoute, private router: Router,private tokenService:TokenService) { }
 
   ngOnInit(): void {
     //para lista
     this.cargarExperiencia();
-    //para update
-  
+ //para logger
+ if(this.tokenService.getToken()){
+  this.logged=true;
+  this.roles=this.tokenService.getAuthorities();
+  for(let rol of this.roles){
+ if(rol=="ROLE_ADMIN"){
+  this.isAdmin=true
+  break;
+ }else{this.isAdmin=false}
+}
+}else{
+  this.logged=false;
+  this.router.navigate(['']);
+}
 
 
   }
 
   cargarExperiencia(): void {
     this.sExperiencia.lista().subscribe(data => { this.experiencia = data });
-    this.onDetail(1);
   }
 
   //para create
@@ -49,7 +64,7 @@ export class ExperienciaLaboralComponent implements OnInit {
     this.sExperiencia.save(expe).subscribe(
       data => {
         alert("Experiencia Añadida");
-        this.router.navigate(['experiencia']);
+        location.href = location.href;
       }, err => {
         alert("Todos los campos deben estar completos");
         this.router.navigate(['experiencia']);
@@ -57,41 +72,17 @@ export class ExperienciaLaboralComponent implements OnInit {
   }
 
   //para delete
-  delete(id?: number){
-    if(id!=undefined){
+  delete(id?: number) {
+    if (id != undefined) {
       this.sExperiencia.delete(id).subscribe(
-        data=>{
-          this.cargarExperiencia();          
-        },err=>{
+        data => {
+          this.cargarExperiencia();
+        }, err => {
           alert("no se pudo borrar la experiencia");
         }
       )
     }
   }
 
-//para update
-
-onUpdate(id?: number): void{
-  this.sExperiencia.update(id, this.expedit).subscribe(
-    data => {
-      this.router.navigate(['experiencia']);
-      location.href=location.href;
-    }, err =>{
-       alert("Error al modificar experiencia");
-       this.router.navigate(['eperiencia']);
-    }
-  )
-}
-onDetail(id?: number){
-  this.sExperiencia.detail(id).subscribe(
-    data =>{
-      this.expedit = data;
-    }, err =>{
-      alert("Eno se pudo cargar la experiencia");
-      this.router.navigate(['']);
-    }
-  )
-}
-
-
+  
 }

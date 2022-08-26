@@ -1,127 +1,135 @@
-<div class="container text-center" >
-    <div class="row g-4">
-        <div class="tarjeta card  g-4 col-6 " >
-            <div class="row  g-0">
-                <div class="col-md-4">
-                    
-                    <img src="../../../assets/expectativas.jpg" class="img-fluid rounded-start" alt="sin imagen">
-                </div>
-                <div class="col-md-8">
-                    <h5 class="card-header text-center">EXPECTATIVA</h5>
-                    <div class="card-body">
-                        <p class="card-text text-center">Un ambiente con buen clima laboral, desarrollo de carrerra, perfeccionamiento y aprendizaje de los lenguajes de programacion. </p>
-                        <div class="position-absolute  end-0 bottom-0"><i class="bi bi-pencil me-2 text-warning" data-bs-toggle="modal" data-bs-target="#expectativas"></i></div>  
-                    </div>
-                </div>
-            </div>
+<div class="container text-center">
+  <div class="row g-4">
+    <div class="tarjeta card  g-4 col-6 ">
+      <div class="row  g-0">
+        <div class="col-md-4">
+          <img src="../../../assets/expectativas.jpg" class="img-fluid rounded-start" alt="sin imagen">
         </div>
-        <div class="tarjeta card  g-4 col-6">
-            <div class="row  g-0">
-                <div class="col-md-4">
-                    
-                    <img src="../../../assets/mejoras.jpg" class="img-fluid rounded-start" alt="sin imagen">
-                </div>
-                <div class="col-md-8">
-                    <h5 class="card-header text-center">OPORTUNIDADES DE MEJORA</h5>
-                    <div class="card-body">
-                        <p class="card-text text-center">En lo que respecta al trabajo en equipo deseo desarrollar la capacidad al momento solicitar de ayuda</p>
-                        <div class="position-absolute  end-0 bottom-0"><i class="bi bi-pencil me-2 text-warning " data-bs-toggle="modal" data-bs-target="#oportunidades"></i></div> 
-                    </div>
-                </div>
-            </div>
+        <div class="col-md-8">
+          <h5 class="card-header text-center">EXPECTATIVA</h5>
+          <div class="card-body">
+            <p class="card-text text-center">{{objetivo.descripcionE}} </p>
+            <div class="position-absolute  end-0 bottom-0" *ngIf="isAdmin"><i class="bi bi-pencil me-2 text-warning"
+                data-bs-toggle="modal" data-bs-target="#expectativas"></i></div>
+          </div>
         </div>
-        <div class="card  g-4 col-10 " style="background-color: rgba(255, 255, 255, 0.2);margin-left:9vw; " >
-            <div class="row g-0" >
-                <div class="col-md-4" >
-                    
-                    <img src="../../../assets/fortalezas.jpg" class="img-fluid rounded-start" alt="sin imagen">
-                </div>
-                <div class="col-md-8">
-                    <h5 class="card-header text-center">FORTALEZAS</h5>
-                    <div class="card-body">
-                        
-                        <p class="card-text text-center">Autoexaminación,Empatíco,Sociable,Perseverante,proactvo,curioso, honesto,comprometido</p>
-                        <div class="position-absolute  bottom-0 end-0"><i class="bi bi-pencil me-2 text-warning" data-bs-toggle="modal" data-bs-target="#fortalezas"></i></div> 
-                    </div>
-                </div>
-            </div>
-        </div>
-       
+      </div>
     </div>
+    <div class="tarjeta card  g-4 col-6">
+      <div class="row  g-0">
+        <div class="col-md-4">
+          <img src="../../../assets/mejoras.jpg" class="img-fluid rounded-start" alt="sin imagen">
+        </div>
+        <div class="col-md-8">
+          <h5 class="card-header text-center">OPORTUNIDADES DE MEJORA</h5>
+          <div class="card-body">
+            <p class="card-text text-center">{{objetivo.descripcionM}}</p>
+            <div class="position-absolute  end-0 bottom-0" *ngIf="isAdmin"><i class="bi bi-pencil me-2 text-warning "
+                data-bs-toggle="modal" data-bs-target="#oportunidades"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card  g-4 col-10 " style="background-color: rgba(255, 255, 255, 0.2);margin-left:9vw; ">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="../../../assets/fortalezas.jpg" class="img-fluid rounded-start" alt="sin imagen">
+        </div>
+        <div class="col-md-8">
+          <h5 class="card-header text-center">FORTALEZAS</h5>
+          <div class="card-body">
+
+            <p class="card-text text-center">{{objetivo.descripcionF}}</p>
+            <div class="position-absolute  bottom-0 end-0" *ngIf="isAdmin"><i class="bi bi-pencil me-2 text-warning"
+                data-bs-toggle="modal" data-bs-target="#fortalezas"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 
 <!-- aqui se construyo el modal fortalezas-->
 
 <div class="modal fade  " id="fortalezas" tabindex="-1" aria-labelledby="fortalezasModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered ">
-      <div class="modal-content bg-transparent  border-light">
-        <div class="modal-header ">
-          <h5 class="modal-title text-warning" id="fortalezasModalLabel">Fortalezas</h5>
-          <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close" ></button>
-        </div>
-        <div class="modal-body">
-            <form>
-              <div class="mb-3 ">
-                <label for="exampleFormControlTextarea1" class="form-label text-warning">Descripcion</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-              </div>
-              </form>
-        </div>
-        <div class="modal-footer ">
-            <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-warning text-dark">Save changes</button>
+  <div class="modal-dialog modal-dialog-centered ">
+    <div class="modal-content bg-transparent  border-light">
+      <div class="modal-header ">
+        <h5 class="modal-title text-warning" id="fortalezasModalLabel">Fortalezas</h5>
+        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"
+          (click)="onDetail()"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="onUpdate()">
+          <div class="mb-3 ">
+            <label for="exampleFormControlTextarea1" class="form-label text-warning">Descripcion</label>
+            <textarea class="form-control" id="descripcionF" name="descripcionF" [(ngModel)]="objetivo.descripcionF"
+              rows="3"></textarea>
           </div>
+          <div class="modal-footer ">
+            <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal"
+              (click)="onDetail()">Close</button>
+            <button type="submit" class="btn btn-warning text-dark">Save changes</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
-  
-  <!-- aqui se construyo el modal Expectativa-->
+</div>
+
+<!-- aqui se construyo el modal Expectativa-->
 
 <div class="modal fade  " id="expectativas" tabindex="-1" aria-labelledby="expectativasModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered ">
-      <div class="modal-content bg-transparent  border-light">
-        <div class="modal-header ">
-          <h5 class="modal-title text-warning" id="expectativasModalLabel">Expectativas</h5>
-          <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close" ></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="mb-3 ">
-              <label for="exampleFormControlTextarea1" class="form-label text-warning">Descripcion</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-            </form>
-        </div>
-        <div class="modal-footer ">
-            <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-warning text-dark">Save changes</button>
+  <div class="modal-dialog modal-dialog-centered ">
+    <div class="modal-content bg-transparent  border-light">
+      <div class="modal-header ">
+        <h5 class="modal-title text-warning" id="expectativasModalLabel">Expectativas</h5>
+        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"
+          (click)="onDetail()"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="onUpdate()">
+          <div class="mb-3 ">
+            <label for="exampleFormControlTextarea1" class="form-label text-warning">Descripcion</label>
+            <textarea class="form-control" id="descripcionE" name="descripcionE" [(ngModel)]="objetivo.descripcionE"
+              rows="3"></textarea>
           </div>
+          <div class="modal-footer ">
+            <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal"
+              (click)="onDetail()">Close</button>
+            <button type="submit" class="btn btn-warning text-dark">Save changes</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
-  
-    <!-- aqui se construyo el modal Oportunidades-->
+</div>
+
+<!-- aqui se construyo el modal Oportunidades-->
 
 <div class="modal fade  " id="oportunidades" tabindex="-1" aria-labelledby="oportunidadesModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered ">
-      <div class="modal-content bg-transparent  border-light">
-        <div class="modal-header ">
-          <h5 class="modal-title text-warning" id="oportunidadesModalLabel">Oportunidades de mejoras</h5>
-          <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close" ></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="mb-3 ">
-              <label for="exampleFormControlTextarea1" class="form-label text-warning">Descripcion</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-            </form>
-        </div>
-        <div class="modal-footer ">
-            <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-warning text-dark">Save changes</button>
+  <div class="modal-dialog modal-dialog-centered ">
+    <div class="modal-content bg-transparent  border-light">
+      <div class="modal-header ">
+        <h5 class="modal-title text-warning" id="oportunidadesModalLabel">Oportunidades de mejoras</h5>
+        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"
+          (click)="onDetail()"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="onUpdate()">
+          <div class="mb-3 ">
+            <label for="exampleFormControlTextarea1" class="form-label text-warning">Descripcion</label>
+            <textarea class="form-control" id="descripcionM" name="descripcionM" [(ngModel)]="objetivo.descripcionM"
+              rows="3"></textarea>
           </div>
+          <div class="modal-footer ">
+            <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal"
+              (click)="onDetail()">Close</button>
+            <button type="submit" class="btn btn-warning text-dark">Save changes</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
+</div>
