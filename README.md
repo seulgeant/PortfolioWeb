@@ -1,6 +1,15 @@
-# PortfolioWeb
+# PortfolioWeb Argentina Programa(curriculum)
+
+![html](https://img.shields.io/badge/license-HTML%205.0-green?style=plastic&logo=appveyor)
+![js](https://img.shields.io/badge/license-jscript-green?style=plastic&logo=appveyor)
+![Ts](https://img.shields.io/badge/license-TypeScript-green?style=plastic&logo=appveyor)
+![css](https://img.shields.io/badge/license-CSS-green?style=plastic&logo=appveyor)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
+This appweb is a Curriculum with loguin,skill CRUD and redirection to social networks.
+
+![Portada](src/assets/portada.jpg)
+![Habilidades](src/assets/habilidades.jpg)
 
 ## Development server
 
@@ -25,3 +34,11 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Support
+
+for any suggestion talk with me to leo_04_10@hotmail.com
+
+## State
+
+Unresolve a problem with back end and bbdd with a old code.
