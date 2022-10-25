@@ -50,7 +50,8 @@ if (this.tokenService.getToken()){
   }
   Logout(){
 this.tokenService.logOut();
-window.location.href = 'http://localhost:4200';
+//window.location.href = 'http://localhost:4200';
+window.location.href = 'https://leg-portfolio.web.app/inicio';
   }
 
 }
