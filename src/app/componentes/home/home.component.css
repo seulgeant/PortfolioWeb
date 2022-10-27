@@ -1,11 +1,14 @@
 h1 {
   font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
-  font-size: 7vh;
+  font-size: 5.5vw;
   padding: 10vh 5vw;
   text-align: center;
   text-transform: uppercase;
   text-rendering: optimizeLegibility;
+  
+  
 }
+
 
 .tresde {
   color: orange;
@@ -48,6 +51,7 @@ h1 {
 
   0% {
     transform: translateX(-100vw);
+    
   }
 
   25% {
