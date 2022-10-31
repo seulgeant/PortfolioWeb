@@ -1,3 +1,4 @@
+//import { FileHandle } from './file-handle.model';
 
 export class Estudio {
     id?: number;
@@ -8,6 +9,7 @@ export class Estudio {
     hasta: string;
     estado: string;
     imgest: string;
+    //estudioImages:FileHandle[];
 
     constructor(nivel: string, institucion: string, titulo: string, desde: string, hasta: string, estado: string, imgest: string) {
         this.nivel = nivel;

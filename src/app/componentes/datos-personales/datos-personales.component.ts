@@ -1,3 +1,4 @@
+import { ImageService } from './../../service/image.service';
 
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -16,7 +17,7 @@ export class DatosPersonalesComponent implements OnInit {
   persona: persona = null;
   isAdmin:boolean=false;
 
-  constructor(private sPersona: PersonaService, private route: ActivatedRoute, private router: Router,private tokenService:TokenService) { }
+  constructor(private sPersona: PersonaService, private route: ActivatedRoute, private router: Router,private tokenService:TokenService,private activatedRoute: ActivatedRoute,public imageService:ImageService) { }
 
   ngOnInit(): void {
 
@@ -50,6 +51,8 @@ if(this.tokenService.getToken()){
   }
   //para update
   onUpdate(): void {
+    const id = this.activatedRoute.snapshot.params['id'];
+    this.persona.img=this.imageService.url;
     this.sPersona.update(this.persona).subscribe(
       data => {
         alert("Los datos han sido modificados");
@@ -58,6 +61,13 @@ if(this.tokenService.getToken()){
         alert("Los datos no pueden estar vacios y ingresar solo numeros en campos numericos");
       }
     )
+  }
+
+  uploadImages($event:any){
+    const id=this.activatedRoute.snapshot.params['id'];
+    const name="persona"+id;
+    this.imageService.uploadImages($event,name);
+
   }
 
 }

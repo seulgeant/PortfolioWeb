@@ -25,8 +25,11 @@
             <input type="text" id="hastaE" name="hastaE" [(ngModel)]="experiencia.hastaE">
           </div>
           <div class="mb-3">
-            <label for="formFile" class="form-label text-warning">Subir logo</label>
-            <input type="file" class="form-control" id="imgE" name="imgE"  [(ngModel)]="experiencia.imgE">
+            <label for="formFile" class="form-label text-warning">Subir Imagen</label>
+            <input type="file" class="form-control" id="imgE" name="imgE" [(ngModel)]="experiencia.imgE" (change)="uploadImages($event)" accept=".jpg,.jpeg,.png">
+          </div>
+          <div class="imagen">
+            <img [src]="imageService.url" width="200px">
           </div>
           <div>
             <button type="button" class="btn btn-secondary text-warning" routerLink="/experiencia">Close</button>
