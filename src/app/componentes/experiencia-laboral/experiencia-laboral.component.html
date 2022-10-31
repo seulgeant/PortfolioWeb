@@ -1,7 +1,7 @@
 <div class="position-relative">
   <div class="card col-12 bg-transparent text-center border-0 border-bottom border-warning"
     *ngFor="let Experiencia of experiencia">
-    <img class="imagen" src="{{Experiencia.imgE}}" >
+    <img class="imagen" [src]="Experiencia.imgE" >
     <div class="card-body text-info">
       <h5 class="card-title">{{Experiencia.cargoE}}</h5>
       <h6 class="card-subtitle mb-2 ">{{Experiencia.empresaE}} Desde: {{Experiencia.desdeE}} Hasta:
@@ -56,8 +56,9 @@
               rows="3"></textarea>
           </div>
           <div class="mb-3">
-            <label for="formFile" class="form-label text-warning">Subir logo</label>
-            <input type="file" class="form-control" id="imgE" name="imgE" [(ngModel)]="imgE">
+            <label for="formFile" class="form-label text-warning">Subir Imagen</label>
+            <input type="file" class="form-control" id="imgest" name="imgest" [(ngModel)]="nImg" (change)="newImages($event)" accept=".jpg,.jpeg,.png">
+            <img [src]="imageService.url" width="200px">
           </div>
           <div class="modal-footer ">
             <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal">Close</button>

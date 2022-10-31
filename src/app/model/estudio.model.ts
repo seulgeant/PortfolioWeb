@@ -9,9 +9,10 @@ export class Estudio {
     hasta: string;
     estado: string;
     imgest: string;
+    nameImg:string
     //estudioImages:FileHandle[];
 
-    constructor(nivel: string, institucion: string, titulo: string, desde: string, hasta: string, estado: string, imgest: string) {
+    constructor(nivel: string, institucion: string, titulo: string, desde: string, hasta: string, estado: string, imgest: string,nameImg:string) {
         this.nivel = nivel;
         this.institucion = institucion;
         this.titulo = titulo;
@@ -19,5 +20,6 @@ export class Estudio {
         this.hasta = hasta;
         this.estado = estado;
         this.imgest = imgest;
+        this.nameImg=nameImg;
     }
 }

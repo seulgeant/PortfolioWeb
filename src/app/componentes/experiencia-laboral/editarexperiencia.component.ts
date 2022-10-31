@@ -42,16 +42,19 @@ export class EditarexperienciaComponent implements OnInit {
   }
 
 
-  onUpdate(): void {
+  onUpdate(nameImag:string): void{
+
     const id = this.activatedRoute.snapshot.params['id'];
     this.experiencia.imgE=this.imageService.url;
+    this.imageService.deleteimage(nameImag);
+    this.experiencia.nImg=this.imageService.name;
     this.sExperienciaService.update(id, this.experiencia).subscribe(
       data => {
         alert('Experiencia Modificada')
         this.route.navigate(['experiencia']);
       }, err => {
         alert("Error al modificar");
-
+        
       }
     )
   }
