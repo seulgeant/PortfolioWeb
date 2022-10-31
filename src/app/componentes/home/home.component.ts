@@ -11,11 +11,6 @@ export class HomeComponent implements OnInit {
   constructor(private tokenService:TokenService) { }
 
   ngOnInit(): void {
-    if(this.tokenService.getToken()){
-      this.logged=true;
-    }else{
-      this.logged=false;
-    }
   }
 
 }

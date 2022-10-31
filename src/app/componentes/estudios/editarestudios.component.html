@@ -27,13 +27,17 @@
                     <input type="text" id="hasta" name="hasta" [(ngModel)]="estudio.hasta">
                   </div>
                   <div class="mb-3">
-                    <label for="formFile" class="form-label text-warning">Subir logo</label>
-                    <input type="file" class="form-control" id="imgest" name="imgest" [(ngModel)]="estudio.imgest">
+                    <label for="formFile" class="form-label text-warning">Subir Imagen</label>
+                    <input type="file" class="form-control" id="imgest" name="imgest" [(ngModel)]="estudio.imgest" (change)="uploadImages($event)" accept=".jpg,.jpeg,.png">
+                  </div>
+                  <div class="imagen">
+                    <img [src]="imageService.url" width="200px">
                   </div>
                   <div >
                     <button type="button" class="btn btn-secondary text-warning" routerLink="/estudios">Close</button>
                     <button type="submit" class="btn btn-warning text-dark">Save changes</button>
                   </div>
+            
 
             </form>
         </div>

@@ -1,12 +1,12 @@
 <div class="position-relative">
   <div class="card col-12 bg-transparent text-center" *ngFor="let Hard of hard">
     <div class="card-body text-info">
-      <h5 class="card-title">{{Hard.tituloH}}{{Hard.porcentajeH}}</h5>
+      <h5 class="card-title">{{Hard.tituloH}}</h5>
       <h6 class="card-subtitle mb-2 ">{{Hard.descripcionH}}</h6>
       <div class="progress me-5 ms-5">
         <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar"
           aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
-          style='width:{{Hard.porcentajeH}}%'></div>
+          style='width:{{Hard.porcentajeH}}%'></div><strong style="color:blue;">{{Hard.porcentajeH}}%</strong>
       </div>
       <div class="position-absolute bottom-0 end-0 "*ngIf="isAdmin"><i class="bi bi-pencil me-2 text-warning" routerLink="/editarhard/{{Hard.id}}"></i><i class="bi bi-trash me-2 text-warning "
           (click)="Delete(Hard.id)"></i></div>

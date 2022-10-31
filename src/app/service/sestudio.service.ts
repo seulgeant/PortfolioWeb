@@ -19,8 +19,8 @@ export class SestudioService {
   public detail(id: number): Observable<Estudio> {
     return this.httpClient.get<Estudio>(this.expURL + `detail/${id}`);
   }
-  public save(estudio: Estudio): Observable<any> {
-    return this.httpClient.post<any>(this.expURL + 'create', estudio);
+  public save(estudio: Estudio):Observable<any> {
+    return this.httpClient.post<Estudio>(this.expURL + 'create', estudio);
   }
   public update(id: number, estudio: Estudio): Observable<any> {
     return this.httpClient.put<any>(this.expURL + `update/${id}`, estudio);

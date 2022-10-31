@@ -1,3 +1,4 @@
+import { ImageService } from './../../service/image.service';
 import { TokenService } from './../../service/token.service';
 import { SExperienciaService } from './../../service/s-experiencia.service';
 import { Experiencia } from './../../model/experiencia.model';
@@ -13,7 +14,7 @@ export class EditarexperienciaComponent implements OnInit {
   experiencia: Experiencia = null;
   roles: string[] = [];
   role: string = "";
-  constructor(private tokenService: TokenService, private sExperienciaService: SExperienciaService, private activatedRoute: ActivatedRoute, private route: Router) { }
+  constructor(private tokenService: TokenService, private sExperienciaService: SExperienciaService, private activatedRoute: ActivatedRoute, private route: Router, public imageService:ImageService) { }
 
   ngOnInit(): void {
 
@@ -43,6 +44,7 @@ export class EditarexperienciaComponent implements OnInit {
 
   onUpdate(): void {
     const id = this.activatedRoute.snapshot.params['id'];
+    this.experiencia.imgE=this.imageService.url;
     this.sExperienciaService.update(id, this.experiencia).subscribe(
       data => {
         alert('Experiencia Modificada')
@@ -54,6 +56,11 @@ export class EditarexperienciaComponent implements OnInit {
     )
   }
 
+  uploadImages($event:any){
+    const id=this.activatedRoute.snapshot.params['id'];
+    const name="experiencia_"+id;
+    this.imageService.uploadImages($event,name);
 
+  }
 
 }
