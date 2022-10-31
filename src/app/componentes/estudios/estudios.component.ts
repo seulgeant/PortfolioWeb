@@ -1,3 +1,4 @@
+import { ImageService } from './../../service/image.service';
 //import { FileHandle } from './../../model/file-handle.model';
 import { TokenService } from './../../service/token.service';
 import { SestudioService } from './../../service/sestudio.service';
@@ -24,6 +25,7 @@ export class EstudiosComponent implements OnInit {
   hasta: string;
   estado: string;
   imgest: string;
+  nameImg:string;
  // estudioImages:FileHandle[]=[];
   //para update
   estupd: Estudio = null;
@@ -36,7 +38,7 @@ export class EstudiosComponent implements OnInit {
 
 
 
-  constructor(private sEstudio: SestudioService, private route: ActivatedRoute, private router: Router,private tokenService:TokenService,private sanitizier:DomSanitizer) { }
+  constructor(private sEstudio: SestudioService, private route: ActivatedRoute, private router: Router,private tokenService:TokenService,public imageService:ImageService) { }
 
   ngOnInit(): void {
     //para lista
@@ -65,9 +67,8 @@ export class EstudiosComponent implements OnInit {
 
   //para create
   onCreate(): void {
-    
-
-    const est = new Estudio(this.nivel, this.institucion, this.titulo, this.desde, this.hasta, this.estado, this.imgest);
+    this.imgest=this.imageService.url;
+    const est = new Estudio(this.nivel, this.institucion, this.titulo, this.desde, this.hasta, this.estado, this.imgest,this.nameImg);
    // const estudioFormData=this.prepareFormData(est)
     this.sEstudio.save(est).subscribe(
       data => {
@@ -80,20 +81,28 @@ export class EstudiosComponent implements OnInit {
 
   
   //para delete
-  delete(id?: number) {
+  delete(id?: number,nameImagen?:string) {
     if (id != undefined) {
+      this.imageService.deleteimage(nameImagen)
       this.sEstudio.delete(id).subscribe(
         data => {
           this.cargarEstudio();
         }, err => {
-          alert("no se pudo borrar la estudio");
+          alert("no se pudo borrar el estudio");
           this.cargarEstudio();
         }
       )
     }
   }
 
-  
+
+
+  newImages($event:any){
+    //const id=this.activatedRoute.snapshot.params['id'];
+    this.nameImg=$event.target.files[0].name;
+    this.imageService.newImages($event);
+    
+  }
 /*onFileSelected(event: any){
 if (event.target.files){
   const file=event.target.files[0];

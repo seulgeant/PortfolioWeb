@@ -45,9 +45,12 @@ export class EditarestudiosComponent implements OnInit {
   }
 
 
-  onUpdate(): void{
+  onUpdate(nameImagen:string): void{
+
     const id = this.activatedRoute.snapshot.params['id'];
-    this.estudio.imgest=this.imageService.url;
+    this.estudio.imgest=this.imageService.url;   
+    this.imageService.deleteimage(nameImagen);
+    this.estudio.nameImg=this.imageService.name;
     this.sEstudio.update(id, this.estudio).subscribe(
       data => {
         alert('Estudio Modificado')
@@ -65,5 +68,7 @@ export class EditarestudiosComponent implements OnInit {
     this.imageService.uploadImages($event,name);
 
   }
+
+
 
 }

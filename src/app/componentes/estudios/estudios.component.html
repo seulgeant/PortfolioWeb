@@ -1,7 +1,7 @@
 <div class="position-relative">
   <div class="card col-12 bg-transparent text-center border-0 border-bottom border-warning"
     *ngFor="let estudio of estudio">
-    <img class="imagen" src="{{estudio.imgest}}">
+    <img class="imagen" [src]="estudio.imgest">
     <div class="card-body text-info">
       <h5 class="card-title">{{estudio.nivel}}</h5>
       <h6 class="card-subtitle mb-2 ">Institucion: {{estudio.institucion}}</h6>
@@ -9,7 +9,7 @@
       <p class="card-text ">{{estudio.desde}} - {{estudio.hasta}} Estado:{{estudio.estado}}</p>
       <div class="position-absolute bottom-0 end-0 " *ngIf="isAdmin">
         <i class="bi bi-pencil me-2 text-warning" routerLink="/editarestudio/{{estudio.id}}"></i>
-        <i class="bi bi-trash me-2 text-warning " (click)="delete(estudio.id)"></i>
+        <i class="bi bi-trash me-2 text-warning " (click)="delete(estudio.id, estudio.nameImg)"></i>
       </div>
     </div>
   </div>
@@ -57,8 +57,10 @@
 
           <div class="mb-3">
             <label for="formFile" class="form-label text-warning">Subir Imagen</label>
-            <input type="file" class="form-control" id="imgE" name="imgE" [(ngModel)]="imgest">
+            <input type="file" class="form-control" id="imgest" name="imgest" [(ngModel)]="imgest" (change)="newImages($event)" accept=".jpg,.jpeg,.png">
+            <img [src]="imageService.url" width="200px">
           </div>
+
           <div class="modal-footer ">
             <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal"
               (click)="cargarEstudio()">Close</button>

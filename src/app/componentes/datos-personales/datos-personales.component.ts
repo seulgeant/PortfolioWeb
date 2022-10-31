@@ -65,7 +65,7 @@ if(this.tokenService.getToken()){
 
   uploadImages($event:any){
     const id=this.activatedRoute.snapshot.params['id'];
-    const name="persona"+id;
+    const name="persona";
     this.imageService.uploadImages($event,name);
 
   }

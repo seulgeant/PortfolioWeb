@@ -2,7 +2,7 @@
   <div class="container ">
     <div class="row ">
       <div>
-        <form (ngSubmit)="onUpdate()">
+        <form (ngSubmit)="onUpdate(experiencia.nImg)">
           <div class="input-group input-group-sm mb-3">
             <span class="input-group-text">Empresa</span>
             <input type="text" class="form-control" id="empresaE" name="empresaE" [(ngModel)]="experiencia.empresaE" >
