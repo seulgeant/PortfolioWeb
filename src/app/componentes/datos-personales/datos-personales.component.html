@@ -1,7 +1,7 @@
 <div class="card mb-2 ps-4" style="background-color: rgba(0, 0, 0, 0.1);">
   <div class="row g-0 text-light">
     <div class="barra-lateral col-lg-2 " style="z-index: 1;">
-      <img src={{persona.img}} class="img-fluid rounded-start p-3" alt="foto">
+      <img src="{{persona.img}}" class="img-fluid rounded-start ms-5 mt-1" alt="foto" width="100 vh">
       <div class="datos-personales position-relative">
         <div>
           <h5>Datos Personales:</h5>
@@ -84,8 +84,11 @@
             <input type="number" class="form-control" id="hijos" name="hijos" [(ngModel)]="persona.hijos">
           </div>
           <div class="mb-3">
-            <label for="formFile" class="form-label text-warning">Subir Foto</label>
-            <input type="file" class="form-control" id="imgE" name="imgE" [(ngModel)]="persona.img">
+            <label for="formFile" class="form-label text-warning">Subir Imagen</label>
+            <input type="file" class="form-control" id="imgE" name="imgE" [(ngModel)]="persona.img" (change)="uploadImages($event)" accept=".jpg,.jpeg,.png">
+          </div>
+          <div class="imagen">
+            <img [src]="imageService.url" width="200px">
           </div>
           <div class="modal-footer ">
             <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal"

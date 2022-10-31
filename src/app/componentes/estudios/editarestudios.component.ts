@@ -1,3 +1,4 @@
+import { ImageService } from './../../service/image.service';
 import { TokenService } from './../../service/token.service';
 import { Estudio } from './../../model/estudio.model';
 import { SestudioService } from './../../service/sestudio.service';
@@ -15,7 +16,7 @@ export class EditarestudiosComponent implements OnInit {
   role: string = "";
 
 
-  constructor(private tokenService:TokenService,private sEstudio: SestudioService, private activatedRoute:ActivatedRoute, private route:Router) { }
+  constructor(private tokenService:TokenService,private sEstudio: SestudioService, private activatedRoute:ActivatedRoute, private route:Router, public imageService:ImageService) { }
 
   ngOnInit(): void {
        //verifica admin
@@ -46,6 +47,7 @@ export class EditarestudiosComponent implements OnInit {
 
   onUpdate(): void{
     const id = this.activatedRoute.snapshot.params['id'];
+    this.estudio.imgest=this.imageService.url;
     this.sEstudio.update(id, this.estudio).subscribe(
       data => {
         alert('Estudio Modificado')
@@ -55,6 +57,13 @@ export class EditarestudiosComponent implements OnInit {
         
       }
     )
+  }
+
+  uploadImages($event:any){
+    const id=this.activatedRoute.snapshot.params['id'];
+    const name="estudio_"+id;
+    this.imageService.uploadImages($event,name);
+
   }
 
 }
