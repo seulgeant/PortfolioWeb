@@ -17,7 +17,7 @@ export class SoftComponent implements OnInit {
   descripcionS: string;
   porcentajeS: number;
   //para update
-  sft: Soft = null;
+  sft: Soft;
     //para verificar loguer
     logged= false;
     roles:string[]=[];

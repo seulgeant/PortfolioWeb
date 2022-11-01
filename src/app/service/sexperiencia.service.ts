@@ -7,7 +7,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class SExperienciaService {
-  expURL = "Http://localhost:8080/experiencia/"
+  //expURL = "Http://localhost:8080/experiencia/";
+  expURL="https://git.heroku.com/back-portfolioweb-leg.git/experiencia/";
 
   constructor(private httpClient: HttpClient) {
   }

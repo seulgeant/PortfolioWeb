@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./objetivos.component.css']
 })
 export class ObjetivosComponent implements OnInit {
-  objetivo: objetivo = null;
+  objetivo: objetivo;
     //para verificar loguer
 logged= false;
 roles:string[]=[];

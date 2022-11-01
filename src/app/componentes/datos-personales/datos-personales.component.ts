@@ -14,7 +14,7 @@ import { TokenService } from 'src/app/service/token.service';
 export class DatosPersonalesComponent implements OnInit {
   logged= false;
   roles:string[]=[];
-  persona: persona = null;
+  persona: persona;
   isAdmin:boolean=false;
 
   constructor(private sPersona: PersonaService, private route: ActivatedRoute, private router: Router,private tokenService:TokenService,private activatedRoute: ActivatedRoute,public imageService:ImageService) { }

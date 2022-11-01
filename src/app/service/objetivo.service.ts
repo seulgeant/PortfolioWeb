@@ -7,7 +7,8 @@ import { objetivo } from '../model/Objetivo.model';
   providedIn: 'root'
 })
 export class ObjetivoService {
-  objURL = "Http://localhost:8080/objetivo/"
+  //objURL = "Http://localhost:8080/objetivo/";
+  objURL="https://git.heroku.com/back-portfolioweb-leg.git/objetivo/";
   constructor(private httpClient: HttpClient) { }
 
   public detail(): Observable<objetivo> {

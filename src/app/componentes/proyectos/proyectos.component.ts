@@ -19,7 +19,7 @@ export class ProyectosComponent implements OnInit {
   url: string;
   empresaP: string;
   //para update
-  proyupd: Proyecto = null;
+  proyupd: Proyecto;
   idn: number;
     //para verificar loguer
     logged= false;

@@ -10,7 +10,7 @@ import { TokenService } from 'src/app/service/token.service';
   styleUrls: []
 })
 export class EditarsoftComponent implements OnInit {
-  soft: Soft = null;
+  soft: Soft;
   roles: string[] = [];
   role: string = "";
 

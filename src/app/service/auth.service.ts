@@ -1,14 +1,17 @@
-import { Observable } from 'rxjs';
-import { LoginUsuario } from './../model/login-usuario';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { LoginUsuario } from './../model/login-usuario';
 import { JwtDto } from '../model/jwt-dto';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-authURL= "Http://localhost:8080/auth/"
+  //authURL= "Http://localhost:8080/auth/";
+  authURL="https://git.heroku.com/back-portfolioweb-leg.git/auth/";
 
   constructor(private httpClient:HttpClient) { }
 

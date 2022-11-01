@@ -1,67 +1,67 @@
 div {
-  font-size: 2.2vh;
-
-}
-
-
-h5 {
-  font-size: 3vh;
-}
-
-
-section {
-
-  padding-top: 8vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row-reverse;
-}
-
-.barra-lateral {
-  background-image: linear-gradient(139deg, rgb(2, 2, 59), rgb(2, 2, 95));
-
-
-
-}
-
-.datos-personales {
-  padding: 1vw 1vw 4vw 1vw;
-
-}
-
-.contacto {
-  padding: 1vw 1vw 1vw 1vw;
-
-}
-
-.img-fondo {
-
-  position: absolute;
-  width: 100vw;
-  height: 20vh;
-  background-color: rgba(194, 143, 4, 0.4);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.img-fondo h2 {
-
-  padding-top: 2vw;
-  text-align: center;
-  font-size: 8vh;
-  text-transform: uppercase;
-  color: #2196f3;
-
-}
-
-@media all and (max-width:860px) {
-  div {
-    font-size: 3vh;
-    text-align: center;
+    font-size: 2.2vh;
+  
   }
-
+  
+  
   h5 {
-    font-size: 5vh;
-    text-align: center;
+    font-size: 3vh;
   }
-}
+  
+  
+  section {
+  
+    padding-top: 8vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+  }
+  
+  .barra-lateral {
+    background-image: linear-gradient(139deg, rgb(2, 2, 59), rgb(2, 2, 95));
+  
+  
+  
+  }
+  
+  .datos-personales {
+    padding: 1vw 1vw 4vw 1vw;
+  
+  }
+  
+  .contacto {
+    padding: 1vw 1vw 1vw 1vw;
+  
+  }
+  
+  .img-fondo {
+  
+    position: absolute;
+    width: 100vw;
+    height: 20vh;
+    background-color: rgba(194, 143, 4, 0.4);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .img-fondo h2 {
+  
+    padding-top: 2vw;
+    text-align: center;
+    font-size: 8vh;
+    text-transform: uppercase;
+    color: #2196f3;
+  
+  }
+  
+  @media all and (max-width:860px) {
+    div {
+      font-size: 3vh;
+      text-align: center;
+    }
+  
+    h5 {
+      font-size: 5vh;
+      text-align: center;
+    }
+  }

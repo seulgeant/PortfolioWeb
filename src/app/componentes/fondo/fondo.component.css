@@ -1,47 +1,47 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-
-}
-
-.container {
-  min-height: 100vh;
-  min-width: 100vw;
-  background-color: #0c192c;
-  position: fixed;
-
-}
-
-.burbuja {
-  position: absolute;
-  display: flex;
-}
-
-.burbuja span {
-  position: relative;
-  width: 30px;
-  height: 30px;
-  background: #4fc3dc;
-  margin: 0 4px;
-  border-radius: 50%;
-  box-shadow: 0 0 0 10px #4fc3dc44, 0 0 50px #4fc3dc, 0 0 100px #4fc3dc;
-  animation: animate 15s linear infinite;
-  animation-duration: calc(125s / var(--i));
-
-}
-
-.burbuja span:nth-child(even) {
-  background: #ff9710;
-  box-shadow: 0 0 0 10px #ff971044, 0 0 50px #ff9710, 0 0 100px #ff9710;
-}
-
-@keyframes animate {
-  0% {
-    transform: translateY(100vh) scale(0);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  
   }
-
-  100% {
-    transform: translateY(-25vh) scale(1);
+  
+  .container {
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: #0c192c;
+    position: fixed;
+  
   }
-}
+  
+  .burbuja {
+    position: absolute;
+    display: flex;
+  }
+  
+  .burbuja span {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: #4fc3dc;
+    margin: 0 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px #4fc3dc44, 0 0 50px #4fc3dc, 0 0 100px #4fc3dc;
+    animation: animate 15s linear infinite;
+    animation-duration: calc(125s / var(--i));
+  
+  }
+  
+  .burbuja span:nth-child(even) {
+    background: #ff9710;
+    box-shadow: 0 0 0 10px #ff971044, 0 0 50px #ff9710, 0 0 100px #ff9710;
+  }
+  
+  @keyframes animate {
+    0% {
+      transform: translateY(100vh) scale(0);
+    }
+  
+    100% {
+      transform: translateY(-25vh) scale(1);
+    }
+  }

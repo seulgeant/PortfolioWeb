@@ -1,73 +1,73 @@
 <div class="position-relative">
-  <div class="card col-12 bg-transparent text-center border-0 border-bottom border-warning"
-    *ngFor="let estudio of estudio">
-    <img class="imagen" [src]="estudio.imgest">
-    <div class="card-body text-info">
-      <h5 class="card-title">{{estudio.nivel}}</h5>
-      <h6 class="card-subtitle mb-2 ">Institucion: {{estudio.institucion}}</h6>
-      <h6 class="card-subtitle mb-2 ">Titulo: {{estudio.titulo}}</h6>
-      <p class="card-text ">{{estudio.desde}} - {{estudio.hasta}} Estado:{{estudio.estado}}</p>
-      <div class="position-absolute bottom-0 end-0 " *ngIf="isAdmin">
-        <i class="bi bi-pencil me-2 text-warning" routerLink="/editarestudio/{{estudio.id}}"></i>
-        <i class="bi bi-trash me-2 text-warning " (click)="delete(estudio.id, estudio.nameImg)"></i>
+    <div class="card col-12 bg-transparent text-center border-0 border-bottom border-warning"
+      *ngFor="let estudio of estudio">
+      <img class="imagen" [src]="estudio.imgest">
+      <div class="card-body text-info">
+        <h5 class="card-title">{{estudio.nivel}}</h5>
+        <h6 class="card-subtitle mb-2 ">Institucion: {{estudio.institucion}}</h6>
+        <h6 class="card-subtitle mb-2 ">Titulo: {{estudio.titulo}}</h6>
+        <p class="card-text ">{{estudio.desde}} - {{estudio.hasta}} Estado:{{estudio.estado}}</p>
+        <div class="position-absolute bottom-0 end-0 " *ngIf="isAdmin">
+          <i class="bi bi-pencil me-2 text-warning" routerLink="/editarestudio/{{estudio.id}}"></i>
+          <i class="bi bi-trash me-2 text-warning " (click)="delete(estudio.nameImg,estudio.id)"></i>
+        </div>
       </div>
     </div>
+    <div class="position-absolute top-0 end-0 bg-warning p-1  "*ngIf="isAdmin"><i class="bi bi-plus-lg" data-bs-toggle="modal"
+        data-bs-target="#nestudios"></i></div>
   </div>
-  <div class="position-absolute top-0 end-0 bg-warning p-1  "*ngIf="isAdmin"><i class="bi bi-plus-lg" data-bs-toggle="modal"
-      data-bs-target="#nestudios"></i></div>
-</div>
-
-
-
-<!-- aqui se construyo el modal create-->
-
-<div class="modal fade  " id="nestudios" tabindex="-1" aria-labelledby="nestudiosModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered ">
-    <div class="modal-content bg-transparent  border-light ">
-      <div class="modal-header ">
-        <h5 class="modal-title text-warning" id="nestudiosModalLabel">Nuevo Estudios</h5>
-        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"
-          (click)="cargarEstudio()"></button>
-      </div>
-      <div class="modal-body">
-        <form (ngSubmit)="onCreate()">
-          <div class="input-group mb-3">
-            <div class="mb-3 input-group mb-3">
-              <label class="input-group-text" for="inputGroupSelect01">Nivel</label>
-              <input type="text" class="form-control" id="nivel" name="nivel" [(ngModel)]="nivel">
+  
+  
+  
+  <!-- aqui se construyo el modal create-->
+  
+  <div class="modal fade  " id="nestudios" tabindex="-1" aria-labelledby="nestudiosModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered ">
+      <div class="modal-content bg-transparent  border-light ">
+        <div class="modal-header ">
+          <h5 class="modal-title text-warning" id="nestudiosModalLabel">Nuevo Estudios</h5>
+          <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"
+            (click)="cargarEstudio()"></button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="onCreate()">
+            <div class="input-group mb-3">
+              <div class="mb-3 input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Nivel</label>
+                <input type="text" class="form-control" id="nivel" name="nivel" [(ngModel)]="nivel">
+              </div>
             </div>
-          </div>
-          <div class="mb-3 input-group mb-3">
-            <label class="input-group-text" for="inputGroupSelect01">Institucion</label>
-            <input type="text" class="form-control" id="institucion" name="institucion" [(ngModel)]="institucion">
-          </div>
-          <div class="mb-3 input-group mb-3">
-            <label class="input-group-text" for="inputGroupSelect01">Titulo</label>
-            <input type="text" class="form-control" id="titulo" name="titulo" [(ngModel)]="titulo">
-          </div>
-          <div class="input-group mb-3">
-            <label class="input-group-text" for="inputGroupSelect01">desde/hasta</label>
-            <input type="date" id="desde" name="desde" [(ngModel)]="desde">
-            <input type="text" id="hasta" name="hasta" [(ngModel)]="hasta">
-          </div>
-          <div class="mb-3 input-group mb-3">
-            <label class="input-group-text" for="inputGroupSelect01">Estado</label>
-            <input type="text" class="form-control" id="estado" name="estado" [(ngModel)]="estado">
-          </div>
-
-          <div class="mb-3">
-            <label for="formFile" class="form-label text-warning">Subir Imagen</label>
-            <input type="file" class="form-control" id="imgest" name="imgest" [(ngModel)]="imgest" (change)="newImages($event)" accept=".jpg,.jpeg,.png">
-            <img [src]="imageService.url" width="200px">
-          </div>
-
-          <div class="modal-footer ">
-            <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal"
-              (click)="cargarEstudio()">Close</button>
-            <button type="submit" class="btn btn-warning text-dark">Save changes</button>
-          </div>
-        </form>
+            <div class="mb-3 input-group mb-3">
+              <label class="input-group-text" for="inputGroupSelect01">Institucion</label>
+              <input type="text" class="form-control" id="institucion" name="institucion" [(ngModel)]="institucion">
+            </div>
+            <div class="mb-3 input-group mb-3">
+              <label class="input-group-text" for="inputGroupSelect01">Titulo</label>
+              <input type="text" class="form-control" id="titulo" name="titulo" [(ngModel)]="titulo">
+            </div>
+            <div class="input-group mb-3">
+              <label class="input-group-text" for="inputGroupSelect01">desde/hasta</label>
+              <input type="date" id="desde" name="desde" [(ngModel)]="desde">
+              <input type="text" id="hasta" name="hasta" [(ngModel)]="hasta">
+            </div>
+            <div class="mb-3 input-group mb-3">
+              <label class="input-group-text" for="inputGroupSelect01">Estado</label>
+              <input type="text" class="form-control" id="estado" name="estado" [(ngModel)]="estado">
+            </div>
+  
+            <div class="mb-3">
+              <label for="formFile" class="form-label text-warning">Subir Imagen</label>
+              <input type="file" class="form-control" id="imgest" name="imgest" [(ngModel)]="imgest" (change)="newImages($event)" accept=".jpg,.jpeg,.png">
+              <img [src]="imageService.url" width="200px">
+            </div>
+  
+            <div class="modal-footer ">
+              <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal"
+                (click)="cargarEstudio()">Close</button>
+              <button type="submit" class="btn btn-warning text-dark">Save changes</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>

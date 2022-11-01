@@ -1,9 +1,9 @@
 import { ImageService } from './../../service/image.service';
 import { TokenService } from './../../service/token.service';
-import { SExperienciaService } from './../../service/s-experiencia.service';
 import { Experiencia } from '../../model/experiencia.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SExperienciaService } from 'src/app/service/sexperiencia.service';
 
 @Component({
   selector: 'app-experiencia-laboral',
@@ -23,7 +23,7 @@ export class ExperienciaLaboralComponent implements OnInit {
   imgE: string;
   nImg: string;
   //para update
-  expedit: Experiencia = null;
+  expedit: Experiencia;
 //para verificar loguer
 logged= false;
 roles:string[]=[];
@@ -75,7 +75,7 @@ isAdmin:boolean=false;
   }
 
   //para delete
-  delete(id?: number,nameImagen?:string) {
+  delete(nameImagen:string,id?: number) {
     if (id != undefined) {
       this.imageService.deleteimage(nameImagen)
       this.sExperiencia.delete(id).subscribe(

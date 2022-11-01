@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "leg-portfolio"
+  },
+  "targets": {
+    "leg-portfolio": {
+      "hosting": {
+        "PortfolioWeb": [
+          "leg-portfolio"
+        ]
+      }
+    }
   }
 }
