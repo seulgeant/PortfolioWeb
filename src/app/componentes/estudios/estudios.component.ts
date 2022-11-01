@@ -1,5 +1,4 @@
 import { ImageService } from './../../service/image.service';
-//import { FileHandle } from './../../model/file-handle.model';
 import { TokenService } from './../../service/token.service';
 import { SestudioService } from './../../service/sestudio.service';
 import { Component, OnInit } from '@angular/core';
@@ -26,7 +25,6 @@ export class EstudiosComponent implements OnInit {
   estado: string;
   imgest: string;
   nameImg:string;
- // estudioImages:FileHandle[]=[];
   //para update
   estupd: Estudio;
   //para verificar loguer
@@ -69,7 +67,6 @@ export class EstudiosComponent implements OnInit {
   onCreate(): void {
     this.imgest=this.imageService.url;
     const est = new Estudio(this.nivel, this.institucion, this.titulo, this.desde, this.hasta, this.estado, this.imgest,this.nameImg);
-   // const estudioFormData=this.prepareFormData(est)
     this.sEstudio.save(est).subscribe(
       data => {
         alert("Experiencia Añadida");
@@ -103,33 +100,5 @@ export class EstudiosComponent implements OnInit {
     this.imageService.newImages($event);
     
   }
-/*onFileSelected(event: any){
-if (event.target.files){
-  const file=event.target.files[0];
 
-const fileHandle:FileHandle = {
-  file:file,
-  url:this.sanitizier.bypassSecurityTrustUrl(window.URL.createObjectURL(file))
- }
-this.estudioImages.push(fileHandle)
-
-}
-}*/
-
-/*prepareFormData(estudio:Estudio):FormData{
-    const formData=new FormData();
-    formData.append(
-      'dtoest',
-      new Blob([JSON.stringify(this.estudio)],{type:'application/json'})
-    );
-    for(var i=0;i<this.estudioImages.length;i++){
-    formData.append(
-      'imageFile',
-      this.estudioImages[i].file,
-      this.estudioImages[i].file.name
-    );
-    }
-    return formData;
-  }
-*/
 }

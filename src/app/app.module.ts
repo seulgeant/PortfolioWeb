@@ -35,7 +35,12 @@ const routes:Routes=[
   {path:'experiencia', component:ExperienciaLaboralComponent},
   {path:'hard', component:HardComponent},
   {path:'soft', component:SoftComponent},
-  {path:'proyectos', component:ProyectosComponent}
+  {path:'proyectos', component:ProyectosComponent},
+  {path:'editarproyecto/:id',component:ModaleditComponent},
+  {path:'editarestudio/:id',component:EditarestudiosComponent},
+  {path:'editarexperiencia/:id',component:EditarexperienciaComponent},
+  {path:'editarhard/:id',component:EditarhardComponent},
+  {path:'editarsoft/:id',component:EditarsoftComponent}
   ]
 
 @NgModule({
