@@ -1,61 +1,62 @@
 <div class="position-relative">
-  <div class="card col-12 bg-transparent text-center border-0 border-bottom border-warning"
-    *ngFor="let Proyecto of proyecto">
-    <div class="card-body text-info">
-      <h5 class="card-title">{{Proyecto.empresaP}}-{{Proyecto.nombreP}}</h5>
-      <h6 class="card-subtitle mb-2 ">Fecha:{{Proyecto.fechaP}}</h6>
-      <h6 class="card-subtitle mb-2 ">URL: {{Proyecto.url}}</h6>
-      <p class="card-text ">Descripcion: {{Proyecto.descripcionP}}</p>
-      <div class="position-absolute bottom-0 end-0 " *ngIf="isAdmin">
-        <i class="bi bi-pencil me-2 text-warning" routerLink="/editarproyecto/{{Proyecto.id}}"></i>
-        <i class="bi bi-trash me-2 text-warning " (click)="Delete(Proyecto.id)"></i>
+    <div class="card col-12 bg-transparent text-center border-0 border-bottom border-warning"
+      *ngFor="let Proyecto of proyecto">
+      <div class="card-body text-info">
+        <h5 class="card-title">{{Proyecto.empresaP}}-{{Proyecto.nombreP}}</h5>
+        <h6 class="card-subtitle mb-2 ">Fecha:{{Proyecto.fechaP}}</h6>
+        <h6 class="card-subtitle mb-2 ">URL: {{Proyecto.url}}</h6>
+        <p class="card-text ">Descripcion: {{Proyecto.descripcionP}}</p>
+        <div class="position-absolute bottom-0 end-0 " *ngIf="isAdmin">
+          <i class="bi bi-pencil me-2 text-warning" routerLink="/editarproyecto/{{Proyecto.id}}"></i>
+          <i class="bi bi-trash me-2 text-warning " (click)="Delete(Proyecto.id)"></i>
+        </div>
+      </div>
+    </div>
+    <div class="position-absolute top-0 end-0 bg-warning p-1" *ngIf="isAdmin"><i class="bi bi-plus-lg" data-bs-toggle="modal"
+        data-bs-target="#nproyectos"></i>
+    </div>
+  </div>
+  
+  
+  <!-- aqui se construyo el modal create-->
+  
+  <div class="modal fade  " id="nproyectos" tabindex="-1" aria-labelledby="nproyectosModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered ">
+      <div class="modal-content bg-transparent  border-light ">
+        <div class="modal-header ">
+          <h5 class="modal-title text-warning" id="nproyectosModalLabel">Nuevo Proyecto</h5>
+          <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="onCreate()">
+            <div class="mb-3 input-group mb-3">
+              <label class="input-group-text" for="inputGroupSelect01">Empresa</label>
+              <input type="text" class="form-control" id="empresaP" name="empresaP" [(ngModel)]="empresaP">
+            </div>
+            <div class="mb-3 input-group mb-3">
+              <label class="input-group-text" for="inputGroupSelect01">Nombre Proyecto</label>
+              <input type="text" class="form-control" id="nombreP" name="nombreP" [(ngModel)]="nombreP">
+            </div>
+            <div class="input-group mb-3">
+              <label class="input-group-text" for="inputGroupSelect01">Fecha</label>
+              <input type="date" id="fechaP" name="fechaP" [(ngModel)]="fechaP">
+            </div>
+            <div class="mb-3 input-group mb-3">
+              <label class="input-group-text" for="inputGroupSelect01">URL</label>
+              <input type="text" class="form-control" id="url" name="url" [(ngModel)]="url">
+            </div>
+            <div class="mb-3 text-warning">
+              <label for="exampleFormControlTextarea1 " class="form-label">Descripcion</label>
+              <textarea class="form-control" id="descripcionP" name="descripcionP" [(ngModel)]="descripcionP"
+                rows="3"></textarea>
+            </div>
+            <div class="modal-footer ">
+              <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-warning text-dark">Save changes</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-  <div class="position-absolute top-0 end-0 bg-warning p-1" *ngIf="isAdmin"><i class="bi bi-plus-lg" data-bs-toggle="modal"
-      data-bs-target="#nproyectos"></i>
-  </div>
-</div>
-
-
-<!-- aqui se construyo el modal create-->
-
-<div class="modal fade  " id="nproyectos" tabindex="-1" aria-labelledby="nproyectosModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered ">
-    <div class="modal-content bg-transparent  border-light ">
-      <div class="modal-header ">
-        <h5 class="modal-title text-warning" id="nproyectosModalLabel">Nuevo Proyecto</h5>
-        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form (ngSubmit)="onCreate()">
-          <div class="mb-3 input-group mb-3">
-            <label class="input-group-text" for="inputGroupSelect01">Empresa</label>
-            <input type="text" class="form-control" id="empresaP" name="empresaP" [(ngModel)]="empresaP">
-          </div>
-          <div class="mb-3 input-group mb-3">
-            <label class="input-group-text" for="inputGroupSelect01">Nombre Proyecto</label>
-            <input type="text" class="form-control" id="nombreP" name="nombreP" [(ngModel)]="nombreP">
-          </div>
-          <div class="input-group mb-3">
-            <label class="input-group-text" for="inputGroupSelect01">Fecha</label>
-            <input type="date" id="fechaP" name="fechaP" [(ngModel)]="fechaP">
-          </div>
-          <div class="mb-3 input-group mb-3">
-            <label class="input-group-text" for="inputGroupSelect01">URL</label>
-            <input type="text" class="form-control" id="url" name="url" [(ngModel)]="url">
-          </div>
-          <div class="mb-3 text-warning">
-            <label for="exampleFormControlTextarea1 " class="form-label">Descripcion</label>
-            <textarea class="form-control" id="descripcionP" name="descripcionP" [(ngModel)]="descripcionP"
-              rows="3"></textarea>
-          </div>
-          <div class="modal-footer ">
-            <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-warning text-dark">Save changes</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
+  

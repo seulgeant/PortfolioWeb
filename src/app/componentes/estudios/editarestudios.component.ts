@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: []
 })
 export class EditarestudiosComponent implements OnInit {
-  estudio: Estudio = null;
+  estudio: Estudio;
   roles: string[] = [];
   role: string = "";
 

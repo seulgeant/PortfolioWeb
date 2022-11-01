@@ -10,7 +10,7 @@ import { TokenService } from 'src/app/service/token.service';
   styleUrls: []
 })
 export class ModaleditComponent implements OnInit {
-  proyupd: Proyecto = null;
+  proyupd: Proyecto;
   roles: string[] = [];
   role: string = "";
 

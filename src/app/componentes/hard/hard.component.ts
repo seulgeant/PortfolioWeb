@@ -17,7 +17,7 @@ export class HardComponent implements OnInit {
   descripcionH: string;
   porcentajeH: number;
   //para update
-  hrd: Hard = null;
+  hrd: Hard;
   //para verificar loguer
 logged= false;
 roles:string[]=[];

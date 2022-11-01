@@ -10,7 +10,7 @@ import { TokenService } from 'src/app/service/token.service';
   styleUrls: []
 })
 export class EditarhardComponent implements OnInit {
-  hard: Hard = null;
+  hard: Hard;
   roles: string[] = [];
   role: string = "";
 

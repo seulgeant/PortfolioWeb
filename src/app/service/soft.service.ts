@@ -7,7 +7,8 @@ import { Soft } from '../model/Soft.model';
   providedIn: 'root'
 })
 export class SoftService {
-  softURL = "Http://localhost:8080/soft/"
+  //softURL = "Http://localhost:8080/soft/";
+  softURL="https://git.heroku.com/back-portfolioweb-leg.git/soft/";
 
   constructor(private httpClient: HttpClient) {
   }

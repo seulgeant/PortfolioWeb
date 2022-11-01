@@ -1,33 +1,33 @@
 .textoyoprogramo {
-  display: inline;
-  float: left;
-}
-
-.yoprogramo {
-
-  font-size: 5vh;
-  color: whitesmoke;
-  margin-left: 0.5vw;
-  animation: yoprog 5s infinite;
-}
-
-@keyframes yoprog {
-  from {
-    height: 0%;
+    display: inline;
+    float: left;
   }
-
-  to {
-    height: 100%;
+  
+  .yoprogramo {
+  
+    font-size: 5vh;
+    color: whitesmoke;
+    margin-left: 0.5vw;
+    animation: yoprog 5s infinite;
   }
-}
-
-
-.head {
-  background-image: linear-gradient(139deg, rgb(2, 2, 59), rgb(2, 2, 95));
-}
-
-@media all and (min-width:1024px) {
-  button {
-    font-size: 1.6vw;
+  
+  @keyframes yoprog {
+    from {
+      height: 0%;
+    }
+  
+    to {
+      height: 100%;
+    }
   }
-}
+  
+  
+  .head {
+    background-image: linear-gradient(139deg, rgb(2, 2, 59), rgb(2, 2, 95));
+  }
+  
+  @media all and (min-width:1024px) {
+    button {
+      font-size: 1.6vw;
+    }
+  }

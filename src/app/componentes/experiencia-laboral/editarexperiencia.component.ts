@@ -1,9 +1,10 @@
 import { ImageService } from './../../service/image.service';
 import { TokenService } from './../../service/token.service';
-import { SExperienciaService } from './../../service/s-experiencia.service';
+
 import { Experiencia } from './../../model/experiencia.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SExperienciaService } from 'src/app/service/sexperiencia.service';
 
 @Component({
   selector: 'app-editarexperiencia',
@@ -11,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: []
 })
 export class EditarexperienciaComponent implements OnInit {
-  experiencia: Experiencia = null;
+  experiencia: Experiencia;
   roles: string[] = [];
   role: string = "";
   constructor(private tokenService: TokenService, private sExperienciaService: SExperienciaService, private activatedRoute: ActivatedRoute, private route: Router, public imageService:ImageService) { }

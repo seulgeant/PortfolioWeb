@@ -1,53 +1,53 @@
 <div class="position-relative">
-  <div class="card col-12 bg-transparent text-center" *ngFor="let Soft of soft">
-    <div class="card-body text-info">
-      <h5 class="card-title">{{Soft.tituloS}}</h5>
-      <h6 class="card-subtitle mb-2 ">{{Soft.descripcionS}}</h6>
-      <div class="progress me-5 ms-5">
-        <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar"
-          aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
-          style='width:{{Soft.porcentajeS}}%'></div><strong style="color:blue;">{{Soft.porcentajeS}}%</strong>
-      </div>
-      <div class="position-absolute bottom-0 end-0 "*ngIf="isAdmin"><i class="bi bi-pencil me-2 text-warning" routerLink="/editarsoft/{{Soft.id}}"></i>
-        <i class="bi bi-trash me-2 text-warning "
-          (click)="Delete(Soft.id)"></i></div>
-    </div>
-  </div>
-  <div class="position-absolute top-0 end-0 bg-warning p-1  "*ngIf="isAdmin"><i class="bi bi-plus-lg" data-bs-toggle="modal"
-      data-bs-target="#nsoft"></i></div>
-</div>
-
-
-<!-- aqui se construyo el modal create-->
-
-<div class="modal fade  " id="nsoft" tabindex="-1" aria-labelledby="nsoftModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered ">
-    <div class="modal-content bg-transparent  border-light ">
-      <div class="modal-header ">
-        <h5 class="modal-title text-warning" id="nsoftModalLabel">Nueva Habilidad</h5>
-        <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form (ngSubmit)="onCreate()">
-          <div class="mb-3 input-group mb-3">
-            <label class="input-group-text" for="inputGroupSelect01">Habilidad</label>
-            <input type="text" class="form-control" id="tituloS" name="tituloS" [(ngModel)]="tituloS">
-          </div>
-          <div class="mb-3 input-group mb-3">
-            <label class="input-group-text" for="inputGroupSelect01">Porcentaje</label>
-            <input type="number" class="form-control" id="porcentajeS" name="porcentajeS" [(ngModel)]="porcentajeS">
-          </div>
-          <div class="mb-3 text-warning">
-            <label for="exampleFormControlTextarea1 " class="form-label">Descripcion</label>
-            <textarea class="form-control" id="descripcionS" name="descripcionS" [(ngModel)]="descripcionS"
-              rows="3"></textarea>
-          </div>
-          <div class="modal-footer ">
-            <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-warning text-dark">Save changes</button>
-          </div>
-        </form>
+    <div class="card col-12 bg-transparent text-center" *ngFor="let Soft of soft">
+      <div class="card-body text-info">
+        <h5 class="card-title">{{Soft.tituloS}}</h5>
+        <h6 class="card-subtitle mb-2 ">{{Soft.descripcionS}}</h6>
+        <div class="progress me-5 ms-5">
+          <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar"
+            aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+            style='width:{{Soft.porcentajeS}}%'></div><strong style="color:blue;">{{Soft.porcentajeS}}%</strong>
+        </div>
+        <div class="position-absolute bottom-0 end-0 "*ngIf="isAdmin"><i class="bi bi-pencil me-2 text-warning" routerLink="/editarsoft/{{Soft.id}}"></i>
+          <i class="bi bi-trash me-2 text-warning "
+            (click)="Delete(Soft.id)"></i></div>
       </div>
     </div>
+    <div class="position-absolute top-0 end-0 bg-warning p-1  "*ngIf="isAdmin"><i class="bi bi-plus-lg" data-bs-toggle="modal"
+        data-bs-target="#nsoft"></i></div>
   </div>
-</div>
+  
+  
+  <!-- aqui se construyo el modal create-->
+  
+  <div class="modal fade  " id="nsoft" tabindex="-1" aria-labelledby="nsoftModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered ">
+      <div class="modal-content bg-transparent  border-light ">
+        <div class="modal-header ">
+          <h5 class="modal-title text-warning" id="nsoftModalLabel">Nueva Habilidad</h5>
+          <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="onCreate()">
+            <div class="mb-3 input-group mb-3">
+              <label class="input-group-text" for="inputGroupSelect01">Habilidad</label>
+              <input type="text" class="form-control" id="tituloS" name="tituloS" [(ngModel)]="tituloS">
+            </div>
+            <div class="mb-3 input-group mb-3">
+              <label class="input-group-text" for="inputGroupSelect01">Porcentaje</label>
+              <input type="number" class="form-control" id="porcentajeS" name="porcentajeS" [(ngModel)]="porcentajeS">
+            </div>
+            <div class="mb-3 text-warning">
+              <label for="exampleFormControlTextarea1 " class="form-label">Descripcion</label>
+              <textarea class="form-control" id="descripcionS" name="descripcionS" [(ngModel)]="descripcionS"
+                rows="3"></textarea>
+            </div>
+            <div class="modal-footer ">
+              <button type="button" class="btn btn-secondary text-warning" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-warning text-dark">Save changes</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

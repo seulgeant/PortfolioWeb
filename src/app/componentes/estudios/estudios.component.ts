@@ -28,7 +28,7 @@ export class EstudiosComponent implements OnInit {
   nameImg:string;
  // estudioImages:FileHandle[]=[];
   //para update
-  estupd: Estudio = null;
+  estupd: Estudio;
   //para verificar loguer
   logged= false;
   roles:string[]=[];
@@ -81,7 +81,7 @@ export class EstudiosComponent implements OnInit {
 
   
   //para delete
-  delete(id?: number,nameImagen?:string) {
+  delete(nameImagen:string,id?: number) {
     if (id != undefined) {
       this.imageService.deleteimage(nameImagen)
       this.sEstudio.delete(id).subscribe(

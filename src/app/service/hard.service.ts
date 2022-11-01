@@ -1,13 +1,14 @@
+import { Injectable } from '@angular/core';
 import { Hard } from './../model/Hard.model';
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HardService {
-  hardURL = "Http://localhost:8080/hard/"
+  //hardURL = "Http://localhost:8080/hard/"
+  hardURL="https://git.heroku.com/back-portfolioweb-leg.git/hard/";
 
   constructor(private httpClient: HttpClient) {
   }

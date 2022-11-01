@@ -8,7 +8,8 @@ import { Estudio } from '../model/estudio.model';
   providedIn: 'root'
 })
 export class SestudioService {
-  expURL = "Http://localhost:8080/estudio/"
+  //expURL = "Http://localhost:8080/estudio/";
+  expURL="https://git.heroku.com/back-portfolioweb-leg.git/estudio/";
 
   constructor(private httpClient: HttpClient) {
   }
