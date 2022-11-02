@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class HardService {
   //hardURL = "Http://localhost:8080/hard/"
-  hardURL="https://git.heroku.com/back-portfolioweb-leg.git/hard/";
+  hardURL="https://back-portfolioweb-leg.herokuapp.com/hard/";
 
   constructor(private httpClient: HttpClient) {
   }

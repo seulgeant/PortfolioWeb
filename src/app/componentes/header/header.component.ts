@@ -3,7 +3,6 @@ import { AuthService } from './../../service/auth.service';
 import { TokenService } from './../../service/token.service';
 import { Component, OnInit } from '@angular/core';
 import { LoginUsuario } from 'src/app/model/login-usuario';
-import { APP_BASE_HREF } from '@angular/common';
 
 @Component({
   selector: 'app-header',

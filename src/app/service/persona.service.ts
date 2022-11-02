@@ -8,7 +8,7 @@ import { persona } from '../model/persona.model';
 })
 export class PersonaService {
   //expURL = "Http://localhost:8080/persona/";
-  expURL="https://git.heroku.com/back-portfolioweb-leg.git/persona/";
+  expURL="https://back-portfolioweb-leg.herokuapp.com/persona/";
 
   constructor(private httpClient: HttpClient) {
   }
