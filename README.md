@@ -9,7 +9,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 This appweb is a Curriculum with loguin,skill CRUD and redirection to social networks.
 
 ![Portada](src/assets/portada.jpg)
-![Habilidades](src/assets/habilidades.jpg)
+![Habilidades](blob/main/src/assets/Habilidades.jpg)
 
 ## Development server
 
