@@ -11,7 +11,8 @@ import { JwtDto } from '../model/jwt-dto';
 })
 export class AuthService {
   //authURL= "Http://localhost:8080/auth/;"
-  authURL="https://back-portfolioweb-leg.herokuapp.com/auth/";
+  //authURL="https://back-portfolioweb-leg.herokuapp.com/auth/";
+  authURL="https://leg-backportfolio.onrender.com/auth/";
 
   constructor(private httpClient:HttpClient) { }
 

@@ -8,7 +8,8 @@ import { Injectable } from '@angular/core';
 })
 export class SExperienciaService {
   //expURL = "Http://localhost:8080/experiencia/";
-  expURL="https://back-portfolioweb-leg.herokuapp.com/experiencia/";
+  //expURL="https://back-portfolioweb-leg.herokuapp.com/experiencia/";
+  expURL="https://leg-backportfolio.onrender.com/experiencia/";
 
   constructor(private httpClient: HttpClient) {
   }

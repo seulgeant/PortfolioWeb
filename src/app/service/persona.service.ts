@@ -8,7 +8,8 @@ import { persona } from '../model/persona.model';
 })
 export class PersonaService {
   //expURL = "Http://localhost:8080/persona/";
-  expURL="https://back-portfolioweb-leg.herokuapp.com/persona/";
+  //expURL="https://back-portfolioweb-leg.herokuapp.com/persona/";
+  expURL="https://leg-backportfolio.onrender.com/persona/";
 
   constructor(private httpClient: HttpClient) {
   }
